@@ -1,0 +1,74 @@
+<div class="main-content  ">
+  <div class="container-fluid ">
+<div class="row ">
+  <div class="col-md-3 pt-5 mt-5">
+    <app-min-nav></app-min-nav>
+  </div>
+          <div class="col-md-8 mt-5">
+            <div class="card mt-5 mb-5">
+                <div class="card">
+                    <div class="card-header card-header-danger">
+                        <h4 class="card-title">Edit Contacts</h4>
+                        <p class="card-category">Complete your contacts</p>
+                    </div>
+                    <div class="card-body">
+                        <form (ngSubmit)="addContact()">
+                    <div class="row">
+                        <div class="col-md-6">
+                          <mat-form-field class="example-full-width">
+                            <input matInput placeholder="Region" name="region" [(ngModel)]="addContactRequest.region "type="text"required>
+                          </mat-form-field>
+                        </div>
+                        <div class="col-md-6">
+                            <mat-form-field class="example-full-width">
+                              <input matInput placeholder="Town" type="text" name="town" [(ngModel)]="addContactRequest.town">
+                            </mat-form-field>
+                          </div>
+                        <div class="col-md-6">
+                          <mat-form-field class="example-full-width">
+                            <input matInput placeholder="Subcity" type="text" name="subcity" [(ngModel)]="addContactRequest.subcity">
+                          </mat-form-field>
+                        </div>
+                        <div class="col-md-6">
+                          <mat-form-field class="example-full-width">
+                            <input matInput placeholder="Woreda" type="text" name="woreda" [(ngModel)]="addContactRequest.woreda" >
+                          </mat-form-field>
+                        </div>
+                        <div class="col-md-6">
+                            <mat-form-field class="example-full-width">
+                              <input matInput placeholder="kebele" type="text" name="town" [(ngModel)]="addContactRequest.town">
+                            </mat-form-field>
+                          </div>
+                          <div class="col-md-6">
+                            <mat-form-field class="example-full-width">
+                              <input matInput placeholder="House Number" type="text" name="houseNumber" [(ngModel)]="addContactRequest.houseNumber">
+                            </mat-form-field>
+                          </div>
+                          <div class="col-md-6">
+                            <mat-form-field class="example-full-width">
+                              <input matInput placeholder="P.O.Box" type="text" name="postNumber" [(ngModel)]="addContactRequest.postNumber">
+                            </mat-form-field>
+                          </div>
+                        <div class="col-md-6">
+                          <mat-form-field class="example-full-width" name="phoneNumber" [(ngModel)]="addContactRequest.phoneNumber" >
+                    
+                              <mat-label>Phone Number </mat-label>
+                              <input matInput placeholder="+251 XXX XXX XXX" name="phoneNumber" >
+                            </mat-form-field>
+                            
+                       
+                        </div>
+                    </div>
+               
+                  
+                 
+                    <button mat-raised-button type="submit" class="btn btn-danger pull-right">save contact </button>
+                    <div class="clearfix"></div>
+                </form>
+            </div>
+        </div>
+    </div>
+   </div></div>
+</div>
+</div>
+

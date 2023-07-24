@@ -1,0 +1,77 @@
+<div class="row">
+  <div class="col-md-12 ">
+    <app-shared-nav [buttons]="buttons"></app-shared-nav>
+</div> 
+  <div class="col-md-3">
+    <app-min-nav></app-min-nav>
+  </div>
+
+          <div class="col-md-8">
+            <div class="card mt-5 mb-5">
+            <div class="card">
+                <div class="card-header card-header-danger">
+                    <h4 class="card-title">Edit Job Description</h4>
+                    <p class="card-category">Complete your Job Description</p>
+                </div>
+                <div class="card-body">
+                    <form>
+                        
+                     
+                       <div class="row">
+                            <div class="col-md-6">
+                              <mat-form-field>
+                                <mat-label>Joined Date</mat-label>
+                                <input matInput [matDatepicker]="picker" placeholder="Choose a date" name="joinedDate">
+                                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                                <mat-datepicker #picker></mat-datepicker>
+                              </mat-form-field>
+                              
+                            </div>
+                            <div class="col-md-6">
+                              <mat-form-field class="example-full-width">
+                                <input matInput placeholder="Location" type="text">
+                              </mat-form-field>
+                            </div>
+                            <div class="col-md-6">
+                              <mat-form-field>
+                                <mat-label>Employee Status</mat-label>
+                                <mat-select placeholder="Select status" name="employeeStatus">
+                                  <mat-option value="active">Active</mat-option>
+                                  <mat-option value="inactive">Inactive</mat-option>
+                                  <mat-option value="on-leave">On Leave</mat-option>
+                                  <mat-option value="terminated">Terminated</mat-option>
+                                </mat-select>
+                              </mat-form-field>
+                              
+                            </div>
+                 
+                              <div class="col-md-6">
+                                <mat-form-field class="example-full-width">
+                                  <input matInput placeholder="Department" type="text" required>
+                                </mat-form-field>
+                              </div>
+                           
+                                <div class="col-md-6">
+                                  <mat-form-field class="example-full-width">
+                                    <input matInput placeholder="Division" type="text" >
+                                  </mat-form-field>
+                                </div>
+                                   </div>
+                  
+                          <div class="col-md-6">
+                            <mat-form-field class="example-full-width">
+                              <input matInput placeholder="Grade Level" type="text" >
+                            </mat-form-field>
+                          </div>
+                         
+           
+                        <button mat-raised-button type="submit" class="btn btn-danger pull-right">save Profile</button>
+                        <div class="clearfix"></div>
+                    </form>
+                </div>
+            </div>
+        </div>
+       
+    </div>
+</div>
+

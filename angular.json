@@ -25,9 +25,23 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.css"
+              "node_modules/perfect-scrollbar/css/perfect-scrollbar.css",
+              "@angular/material/prebuilt-themes/indigo-pink.css",
+              "src/assets/styles.scss",
+              "node_modules/bootstrap/dist/css/bootstrap.css"
             ],
-            "scripts": []
+            "scripts": [
+              "node_modules/@popperjs/core/dist/umd/popper.min.js",
+                "node_modules/perfect-scrollbar/dist/perfect-scrollbar.min.js",
+                "node_modules/jquery/dist/jquery.min.js",
+                "node_modules/bootstrap-material-design/dist/js/bootstrap-material-design.min.js",
+          
+                "node_modules/perfect-scrollbar/dist/perfect-scrollbar.min.js",
+                "node_modules/bootstrap-notify/bootstrap-notify.js"
+        
+              ]
+              
+            
           },
           "configurations": {
             "production": {
@@ -87,12 +101,27 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.css"
+           
+              "node_modules/perfect-scrollbar/css/perfect-scrollbar.css",
+              "@angular/material/prebuilt-themes/indigo-pink.css",
+              "src/assets/styles.scss",
+              "node_modules/bootstrap/dist/css/bootstrap.css"
             ],
-            "scripts": []
+            "scripts": [
+              "node_modules/@popperjs/core/dist/umd/popper.min.js",
+              "node_modules/perfect-scrollbar/dist/perfect-scrollbar.min.js",
+              "node_modules/jquery/dist/jquery.min.js",
+              "node_modules/bootstrap-material-design/dist/js/bootstrap-material-design.min.js",
+            
+              "node_modules/bootstrap-notify/bootstrap-notify.js"
+           
+            ]
           }
         }
       }
     }
+  },
+  "cli": {
+    "analytics": "4875e567-bb4c-4894-92d9-7bd36c288d46"
   }
 }
