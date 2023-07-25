@@ -32,6 +32,17 @@ import { MatToolbar, MatToolbarModule } from '@angular/material/toolbar';
 import { MinNavComponent } from 'app/modules/nav/min-nav/min-nav.component';
 import { EmployeeService } from 'app/service/employee.service';
 import { ContactComponent } from 'app/modules/contact/contact.component';
+import { JobdescriptionComponent } from 'app/modules/jobdescription/jobdescription.component';
+import { SharedNavComponent } from 'app/modules/Admin module/shared-nav/shared-nav.component';
+import { AdminComponent } from 'app/modules/Admin module/admin/admin.component';
+import { EducationLevelComponent } from 'app/modules/Admin module/education-level/education-level.component';
+import { PositionComponent } from 'app/modules/Admin module/Job/position/position.component';
+import { StepComponent } from 'app/modules/Admin module/Job/step/step.component';
+import { GradeComponent } from 'app/modules/Admin module/Job/grade/grade.component';
+import { BranchComponent } from 'app/modules/Admin module/Job/branch/branch.component';
+import { SupervisorComponent } from 'app/modules/Admin module/Job/supervisor/supervisor.component';
+import { EmployeeListComponent } from 'app/modules/Admin module/employee-list/employee-list.component';
+
 
 
 @NgModule({
@@ -40,7 +51,17 @@ import { ContactComponent } from 'app/modules/contact/contact.component';
      DashboardComponent,
     EmployeeRegistrationComponent,
    ContactComponent,
-    MinNavComponent
+   JobdescriptionComponent,
+    MinNavComponent,
+    SharedNavComponent,
+    AdminComponent,
+    EducationLevelComponent,
+    PositionComponent,
+    StepComponent,
+    GradeComponent,
+    BranchComponent,
+    SupervisorComponent,
+EmployeeListComponent
 
   ],
   imports: [
@@ -68,7 +89,8 @@ import { ContactComponent } from 'app/modules/contact/contact.component';
  MatCardModule,
  MatPaginatorModule,
  MatTableModule,
- SharedModule
+ SharedModule,
+
   ],
 
 providers: [

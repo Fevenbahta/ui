@@ -1,0 +1,29 @@
+<app-shared-nav [buttons]="buttons"></app-shared-nav><div class="form-container">
+<form (ngSubmit)="addposition()">
+    <div class="col-md-6">
+        <div class="form-group">
+          <label for="selectedDivision">Division</label>
+          <mat-form-field appearance="outline" class="w-100">
+            <mat-label>Select Division</mat-label>
+            <mat-select placeholder="Select Division" name="selectedDivision" required [(ngModel)]="selectedDivision">
+              <mat-option *ngFor="let division of divisions" [value]="division.divisionId">
+                {{ division.description }}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+      </div>
+    <div class="form-group">
+
+      <label for="positionName">Position Name</label>
+      <input type="text" class="form-control" id="positionName" placeholder="Enter position name" required [(ngModel)]="addPositionRequest.name"name="name" required>
+    </div>
+    <div class="form-group">
+      <label for="positionDescription">Position Description</label>
+      <textarea class="form-control" id="positionDescription" rows="1" placeholder="Enter position description" required [(ngModel)]="addPositionRequest.description" name="description" required></textarea>
+    </div>
+ 
+      
+    <button type="submit" class="btn btn-danger">Save Position</button>
+  </form>
+  </div>

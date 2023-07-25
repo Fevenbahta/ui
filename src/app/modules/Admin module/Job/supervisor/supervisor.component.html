@@ -1,0 +1,31 @@
+
+<app-shared-nav [buttons]="buttons"></app-shared-nav>
+<div class="form-container">
+<form (ngSubmit)="addSupervisor()">
+  <div class="col-md-6">
+    <div class="form-group">
+      <label for="selectedEmployee">Employee</label>
+      <mat-form-field appearance="outline" class="w-100">
+        <mat-label>Select Employee</mat-label>
+        <mat-select placeholder="Select Employee" name="selectedEmployee" required [(ngModel)]="selectedEmployee">
+          <mat-option *ngFor="let employee of employees" [value]="employee.empId">
+            {{ employee.firstName }}   {{ employee.middleName }}   {{ employee.lastName }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+  </div>
+  <div class="col-md-6">
+
+    <mat-form-field>
+      <mat-label>Select Supervisor</mat-label>
+      <mat-select [(ngModel)]="addSupervisorRequest.supervisorLevel" name="supervisorLevel" required>
+        <mat-option value="First Supervisor">First Supervisor</mat-option>
+        <mat-option value="Second Supervisor">Second Supervisor</mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
+  
+    <button type="submit" class="btn btn-danger">Save Supervisor</button>
+  </form>
+  </div>

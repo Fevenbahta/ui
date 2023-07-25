@@ -1,12 +1,13 @@
-<div class="row">
-  <div class="col-md-12 ">
-    <app-shared-nav [buttons]="buttons"></app-shared-nav>
+  <app-shared-nav  [buttons]="buttons"></app-shared-nav>
+  <div class="row ">
+  <div class="col-md-12 mt-5">
+    <!-- <app-shared-nav [buttons]="buttons"></app-shared-nav> -->
 </div> 
-  <div class="col-md-3">
+  <div class="col-md-3 ">
     <app-min-nav></app-min-nav>
   </div>
 
-          <div class="col-md-8">
+          <div class="col-md-8 ">
             <div class="card mt-5 mb-5">
             <div class="card">
                 <div class="card-header card-header-danger">
@@ -14,25 +15,30 @@
                     <p class="card-category">Complete your Job Description</p>
                 </div>
                 <div class="card-body">
-                    <form>
+                    <form (ngSubmit)="addEmployeePosition()">
                         
                      
                        <div class="row">
                             <div class="col-md-6">
                               <mat-form-field>
                                 <mat-label>Joined Date</mat-label>
-                                <input matInput [matDatepicker]="picker" placeholder="Choose a date" name="joinedDate">
+                                <input matInput [matDatepicker]="picker" placeholder="Choose a date" name="joinedDate" [(ngModel)]="addEmployeePositionRequest.startDate" >
                                 <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
                                 <mat-datepicker #picker></mat-datepicker>
                               </mat-form-field>
                               
                             </div>
-                            <div class="col-md-6">
-                              <mat-form-field class="example-full-width">
-                                <input matInput placeholder="Location" type="text">
+                            <!-- <div class="col-md-6">
+                              <mat-form-field>
+                                <mat-label>End Date</mat-label>
+                                <input matInput [matDatepicker]="picker" placeholder="Choose a date" name="joinedDate" [(ngModel)]="addEmployeePositionRequest.endDate" >
+                                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                                <mat-datepicker #picker></mat-datepicker>
                               </mat-form-field>
-                            </div>
-                            <div class="col-md-6">
+                              
+                            </div> -->
+                       
+                            <!-- <div class="col-md-6">
                               <mat-form-field>
                                 <mat-label>Employee Status</mat-label>
                                 <mat-select placeholder="Select status" name="employeeStatus">
@@ -43,27 +49,63 @@
                                 </mat-select>
                               </mat-form-field>
                               
-                            </div>
+                            </div> -->
                  
-                              <div class="col-md-6">
-                                <mat-form-field class="example-full-width">
-                                  <input matInput placeholder="Department" type="text" required>
-                                </mat-form-field>
-                              </div>
+                            <div class="col-md-6">
+                              <mat-form-field class="example-full-width">
+                                <mat-label>Division</mat-label>
+                                <mat-select placeholder="Select Division" name="selectedDivision" required [(ngModel)]="selectedDivision">
+                                  <!-- Use *ngFor on mat-option to loop through departments -->
+                                  <mat-option *ngFor="let division of divisions" [value]="division.divisionId">
+                                    {{division.description}}
+                                  </mat-option>
+                                </mat-select>
+                              </mat-form-field>
+                            </div>
+                            
                            
-                                <div class="col-md-6">
-                                  <mat-form-field class="example-full-width">
-                                    <input matInput placeholder="Division" type="text" >
-                                  </mat-form-field>
-                                </div>
-                                   </div>
+                            <div class="col-md-6">
+                              <mat-form-field class="example-full-width">
+                                <mat-label>Position</mat-label>
+                                <mat-select placeholder="Select Position" name="selectedPosition" [(ngModel)]="selectedPosition" >
+                                  <!-- Replace the options below with your actual division options -->
+                                  <mat-option *ngFor="let position of positions" [value]="position.positionId">
+                                    {{position.name}}
+                                  </mat-option>
+                                 
+                                </mat-select>
+                              </mat-form-field>
+                            </div>
+                            
+                          
                   
-                          <div class="col-md-6">
-                            <mat-form-field class="example-full-width">
-                              <input matInput placeholder="Grade Level" type="text" >
-                            </mat-form-field>
-                          </div>
-                         
+                                   <div class="col-md-6">
+                                    <mat-form-field class="example-full-width">
+                                      <mat-label>Step</mat-label>
+                                      <mat-select placeholder="Select Step" name="selectedStep" [(ngModel)]="selectedStep" >
+                                        <!-- Replace the options below with your actual division options -->
+                                        <mat-option *ngFor="let step of steps" [value]="step.id">
+                                          {{step.description}}
+                                        </mat-option>
+                                       
+                                   
+                                      </mat-select>
+                                    </mat-form-field>
+                                  </div>
+                                  <div class="col-md-6">
+                                    <mat-form-field class="example-full-width">
+                                      <mat-label>Branch</mat-label>
+                                      <mat-select placeholder="Select Branch" name="selectedBranch" [(ngModel)]="selectedBranch" >
+                                        <!-- Replace the options below with your actual division options -->
+                                        <mat-option *ngFor="let branch of branches" [value]="branch.id">
+                                          {{branch.name}}
+                                        </mat-option>
+                                       
+                                   
+                                      </mat-select>
+                                    </mat-form-field>
+                                  </div>
+                                  </div>
            
                         <button mat-raised-button type="submit" class="btn btn-danger pull-right">save Profile</button>
                         <div class="clearfix"></div>

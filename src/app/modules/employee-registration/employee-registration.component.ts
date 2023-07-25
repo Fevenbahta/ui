@@ -1,7 +1,11 @@
 import { Component } from '@angular/core';
 import { Route, Router } from '@angular/router';
+import { v4 as uuidv4 } from 'uuid';
+
 import { Employee } from 'app/models/employee.model';
+import { EmployeeIdService } from 'app/service/employee-id.service';
 import { EmployeeService } from 'app/service/employee.service';
+import { PidService } from 'app/service/pid.service';
 
 @Component({
   selector: 'app-employee-registration',
@@ -10,20 +14,20 @@ import { EmployeeService } from 'app/service/employee.service';
 })
 export class EmployeeRegistrationComponent {
   addEmployeeRequest:Employee={
-  
-    createdBy: "string",
-    createdDate: "2023-07-20T11:58:00.488Z",
-    updatedDate: "2023-07-20T11:58:00.488Z",
-    updatedBy: "string",
-    empId: "3fa85f64-5717-4562-b3fc-2c963f66afa11",
-    ecxId: "string",
-    adId: "string",
+    pId: undefined,
+    createdBy: "",
+    createdDate: null,
+    updatedDate:null,
+    updatedBy: "",
+    empId:undefined,
+    ecxId: "",
+    adId: "",
     firstName: "",
     middleName: "",
     lastName: "",
-    joinDate: "2023-07-20T11:58:00.488Z",
+    joinDate: "",
     sex: "",
-    dateOfBityh: "2023-07-20T11:58:00.488Z",
+    dateOfBityh: "",
     placeOfBith: "",
     martialStatus: "",
     salutation: "",
@@ -33,16 +37,29 @@ export class EmployeeRegistrationComponent {
     crime: true,
     crimeDescription: "",
     firstSupervisor: "",
-    secondSupervisor: ""
+    secondSupervisor: "",
+    status:0,
 }
-constructor(private employeeservice: EmployeeService,private router:Router){}
+buttons = [
+  { label: ' Add Employee ' , route:"/employee-registration" },
+       { label: '  List Employee ', route:"/employee-list" }
+];
+
+constructor(private pIdservice: PidService, private employeeservice: EmployeeService, private employeeIdService: EmployeeIdService, private router:Router){}
 ngOnInit():void {
-}
+} 
+
 addEmployee(){
+  // this.addEmployeeRequest.empId = uuidv4();
+  // this.employeeIdService.employeeId = this.addEmployeeRequest.empId;
+//  this.addEmployeeRequest.pId = this.pIdservice.pId;
 this.employeeservice.addEmployee(this.addEmployeeRequest)
 .subscribe({
-next:(employee)=>{
-this.router.navigate([employee])
+next:(contact)=>{
+  // this.employeeIdService.employeeId = employee.empId;
+// this.router.navigate([employee])
+this.router.navigate(["/employee-registration/contact",]);
+
 },
  error(response){
   console.log(response)

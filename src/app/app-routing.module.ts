@@ -4,6 +4,14 @@ import { EmployeeRegistrationComponent } from './modules/employee-registration/e
 import { DashboardComponent } from './modules/dashboard/dashboard.component';
 import { DefaultComponent } from './layouts/default/default.component';
 import { ContactComponent } from './modules/contact/contact.component';
+import { JobdescriptionComponent } from './modules/jobdescription/jobdescription.component';
+import { PositionComponent } from './modules/Admin module/Job/position/position.component';
+import { StepComponent } from './modules/Admin module/Job/step/step.component';
+import { GradeComponent } from './modules/Admin module/Job/grade/grade.component';
+import { EducationLevelComponent } from './modules/Admin module/education-level/education-level.component';
+import { BranchComponent } from './modules/Admin module/Job/branch/branch.component';
+import { SupervisorComponent } from './modules/Admin module/Job/supervisor/supervisor.component';
+import { EmployeeListComponent } from './modules/Admin module/employee-list/employee-list.component';
 
 const routes: Routes = [
   {path: '',
@@ -13,11 +21,33 @@ children:
 {path:'',
 component:DashboardComponent,
 },
+{path:'dashboard',
+component:DashboardComponent,
+},
 {path:'employee-registration',
 component:EmployeeRegistrationComponent}
 ,
-{path:'contact',
-component: ContactComponent}
+{path:'employee-registration/contact',
+component: ContactComponent},
+{path:'employee-registration/job-description',
+component: JobdescriptionComponent},
+{path:'admin',
+component: PositionComponent},
+{path:'admin/position',
+component: PositionComponent},
+
+{path:'admin/step',
+component: StepComponent},
+{path:'admin/grade',
+component: GradeComponent},
+{path:'admin/education-level',
+component: EducationLevelComponent},
+{path:'admin/branch',
+component: BranchComponent},
+{path:'admin/supervisor',
+component: SupervisorComponent},
+{path:'employee-list',
+component: EmployeeListComponent}
 ]
 }]
 

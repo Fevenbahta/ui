@@ -1,10 +1,10 @@
 export interface Employee{
-
-    createdBy: String, 
-    createdDate:String, 
-    updatedDate: String, 
+     pId?: Number;
+     createdBy?: string;
+     createdDate?: Date | null; // Make createdDate nullable
+     updatedDate?: Date | null;
     updatedBy: String, 
-    empId: String, 
+    empId?: string, 
     ecxId: String, 
     adId: String, 
     firstName: String, 
@@ -23,6 +23,19 @@ export interface Employee{
     crimeDescription: String ,
     firstSupervisor:string,
     secondSupervisor:String,
+    status:number;
+}
+export interface Supervisor{
+
+    createdBy: String, 
+    createdDate:String, 
+    updatedDate: String, 
+    updatedBy: String, 
+    id: String, 
+    pId: number;
+  empId: string,
+  supervisorLevel: string;
+  status:number;
 }
 
   

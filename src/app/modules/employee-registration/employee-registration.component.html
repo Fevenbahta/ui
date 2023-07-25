@@ -1,123 +1,121 @@
-
-<div class="row mt-5">
-    <div class="col-md-12 ">
-      <!-- <app-shared-nav [buttons]="buttons"></app-shared-nav> -->
-  </div> 
-    <div class="col-md-3 pt-5 mt-5">
-      <app-min-nav></app-min-nav>
-    </div>
-            <div class="col-md-8 mt-2">
-              <div class="card mt-5 mb-5">
-                <div class="card">
-                    <div class="card-header card-header-danger">
-                        <h4 class="card-title">Edit Profile</h4>
-                        <p class="card-category">Complete your profile</p>
-                    </div>
-                    <div class="card-body">
-                        <form (ngSubmit)="addEmployee()">
-                            <div class="row">
-                             
-                                <div class="col-md-4">
-                                  <mat-form-field class="example-full-width">
-                                    <input matInput placeholder="Fist Name" type="text" name="firstname" [(ngModel)]="addEmployeeRequest.firstName" required>
-                                  </mat-form-field>
-                                </div>
-                                <div class="col-md-4">
-                                  <mat-form-field class="example-full-width">
-                                    <input matInput placeholder="Middle Name"name="middlename" [(ngModel)]="addEmployeeRequest.middleName" type="text">
-                                  </mat-form-field>
-                                </div>
-                                <div class="col-md-4">
-                                  <mat-form-field class="example-full-width">
-                                    <input matInput placeholder="Last Name" name="lastname" [(ngModel)]="addEmployeeRequest.lastName"type="text">
-                                  </mat-form-field>
-                                </div>
-                          
-                               
-                            </div>
-                            <div class="row">
-                              <div class="col-md-4">
-                                <mat-form-field class="example-full-width">
-                                  <input matInput placeholder="Nationality"name="nationality" [(ngModel)]="addEmployeeRequest.nationality" type="text">
-                                </mat-form-field>
-                              </div>
-                             
-                              <div class="col-md-4">
-                                <mat-form-field>
-                                  <mat-label>Title</mat-label>
-                                  <mat-select placeholder="Salutation" name="salutation"  [(ngModel)]="addEmployeeRequest.salutation">
-                                    <mat-option value="mr">Mr.</mat-option>
-                                    <mat-option value="mrs">Mrs.</mat-option>
-                                    <mat-option value="miss">Miss</mat-option>
-                                    <mat-option value="dr">Dr.</mat-option>
-                                  </mat-select>
-                                </mat-form-field>
-                                
-                              </div>
-                                 <div class="col-md-6">
-                                  <mat-radio-group name="sex"  [(ngModel)]="addEmployeeRequest.sex">
-                                 <p><mat-label>Gender :</mat-label></p>   
-                                    <mat-radio-button value=" male " class="radio-option"> male </mat-radio-button>
-                                    <mat-radio-button value=" female " class="radio-option"> female </mat-radio-button>
-                                  </mat-radio-group>
-                                </div> 
-                                <div class="col-md-6">
-                              <mat-form-field>
-                                <mat-label>Joined Date</mat-label>
-                                <input matInput [matDatepicker]="jdpicker" placeholder="Choose a date" name="joinDate" [(ngModel)]="addEmployeeRequest.joinDate">
-                                <mat-datepicker-toggle matSuffix [for]="jdpicker"></mat-datepicker-toggle>
-                                <mat-datepicker #jdpicker></mat-datepicker>
-                              </mat-form-field>
-                            </div>
-                            
-                                <div class="col-md-6">
-                                  <mat-radio-group name="maritalStatus" [(ngModel)]="addEmployeeRequest.martialStatus">
-                                  <p><mat-label>Marital Status : </mat-label></p>  
-                                    <mat-radio-button value="married"class="radio-option"> Married</mat-radio-button>
-                                    <mat-radio-button value="single" class="radio-option"> Single</mat-radio-button>
-                                  </mat-radio-group>
-                                </div>
-                                <div class="col-md-6">
-                                  <mat-form-field>
-                                    <mat-label>Date of Birth</mat-label>
-                                    <input matInput [matDatepicker]="dobPicker" placeholder="Choose a date" name="dateOfBirth" [(ngModel)]="addEmployeeRequest.dateOfBityh">
-                                    <mat-datepicker-toggle matSuffix [for]="dobPicker"></mat-datepicker-toggle>
-                                    <mat-datepicker #dobPicker></mat-datepicker>
-                                  </mat-form-field>
-                                </div>
-                                
-                           
-        
-                                <div class="col-md-6">
-                                  <mat-form-field class="example-full-width">
-                                    <input matInput placeholder="Place Of Birth" type="text"  name="placeOfBirth" [(ngModel)]="addEmployeeRequest.placeOfBith">
-                                  </mat-form-field>
-                                </div>
-                                <div class="col-md-6">
-                                  <mat-form-field class="example-full-width">
-                                    <input matInput placeholder=" First Supervisor" type="text" name="firstSupervisor" [(ngModel)]="addEmployeeRequest.firstSupervisor">
-                                  </mat-form-field>
-                                </div>    
-                                <div class="col-md-6">
-                                  <mat-form-field class="example-full-width">
-                                    <input matInput placeholder=" Second Supervisor" type="text" name="secondSupervisor" [(ngModel)]="addEmployeeRequest.secondSupervisor">
-                                  </mat-form-field>
-                                </div>            
-                                <div class="row">
-                                  <div class="col-md-4">
-                                    <mat-form-field class="example-full-width">
-                                      <input matInput placeholder="Crime Description" type="text"  name="crimeDescription" [(ngModel)]="addEmployeeRequest.crimeDescription">
-                                    </mat-form-field>
-                                  </div>             <div class="col-md-6">
-                                    <mat-slide-toggle  name="crimeStatus" [(ngModel)]="addEmployeeRequest.crime" >Crime </mat-slide-toggle>
-    
-                                  </div></div>
-                            </div>
-                          
-                            <button mat-raised-button type="submit" class="btn btn-danger pull-right">save Profile</button>
-                            <div class="clearfix"></div>
-                        </form>
-                    </div>
-                </div>
+<app-shared-nav  [buttons]="buttons"></app-shared-nav>
+<div class="row">
+  <div class="col-md-12">
+    <!-- <app-shared-nav [buttons]="buttons"></app-shared-nav> -->
+  </div>
+  <div class="col-md-3 pt-5 ">
+    <app-min-nav></app-min-nav>
+  </div>
+  <div class="col-md-8 mt-2">
+    <div class="card mt-5 mb-5">
+      <div class="card">
+        <div class="card-header card-header-danger">
+          <h4 class="card-title">Edit Profile</h4>
+          <p class="card-category">Complete your profile</p>
+        </div>
+        <div class="card-body">
+          <form (ngSubmit)="addEmployee()" class="needs-validation" novalidate>
+            <div class="row">
+              
+              <div class="col-md-4">
+                <mat-form-field class="example-full-width">
+                  <input matInput placeholder="First Name" type="text" name="firstname" [(ngModel)]="addEmployeeRequest.firstName" required>
+                </mat-form-field>
+              </div>
+              <div class="col-md-4">
+                <mat-form-field class="example-full-width">
+                  <input matInput placeholder="Middle Name" name="middlename" [(ngModel)]="addEmployeeRequest.middleName" type="text">
+                </mat-form-field>
+              </div>
+              <div class="col-md-4">
+                <mat-form-field class="example-full-width">
+                  <input matInput placeholder="Last Name" name="lastname" [(ngModel)]="addEmployeeRequest.lastName" type="text">
+                </mat-form-field>
+              </div>
             </div>
-      </div></div>
+            <div class="row">
+              <div class="col-md-4">
+                <mat-form-field class="example-full-width">
+                  <input matInput placeholder="Nationality" name="nationality" [(ngModel)]="addEmployeeRequest.nationality" type="text">
+                </mat-form-field>
+              </div>
+              <div class="col-md-4">
+                <mat-form-field>
+                  <mat-label>Title</mat-label>
+                  <mat-select placeholder="Salutation" name="salutation" [(ngModel)]="addEmployeeRequest.salutation">
+                    <mat-option value="mr">Mr.</mat-option>
+                    <mat-option value="mrs">Mrs.</mat-option>
+                    <mat-option value="miss">Miss</mat-option>
+                    <mat-option value="dr">Dr.</mat-option>
+                  </mat-select>
+                </mat-form-field>
+              </div>
+              <div class="col-md-6">
+                <mat-radio-group name="sex" [(ngModel)]="addEmployeeRequest.sex">
+                  <p><mat-label>Gender:</mat-label></p>
+                  <mat-radio-button value="male" class="radio-option">Male</mat-radio-button>
+                  <mat-radio-button value="female" class="radio-option">Female</mat-radio-button>
+                </mat-radio-group>
+              </div>
+              <div class="col-md-6">
+                <mat-form-field>
+                  <mat-label>Joined Date</mat-label>
+                  <input matInput [matDatepicker]="jdpicker" placeholder="Choose a date" name="joinDate" [(ngModel)]="addEmployeeRequest.joinDate">
+                  <mat-datepicker-toggle matSuffix [for]="jdpicker"></mat-datepicker-toggle>
+                  <mat-datepicker #jdpicker></mat-datepicker>
+                </mat-form-field>
+              </div>
+              <div class="col-md-6">
+                <mat-radio-group name="maritalStatus" [(ngModel)]="addEmployeeRequest.martialStatus">
+                  <p><mat-label>Marital Status:</mat-label></p>
+                  <mat-radio-button value="married" class="radio-option">Married</mat-radio-button>
+                  <mat-radio-button value="single" class="radio-option">Single</mat-radio-button>
+                </mat-radio-group>
+              </div>
+              <div class="col-md-6">
+                <mat-form-field>
+                  <mat-label>Date of Birth</mat-label>
+                  <input matInput [matDatepicker]="dobPicker" placeholder="Choose a date" name="dateOfBirth" [(ngModel)]="addEmployeeRequest.dateOfBityh">
+                  <mat-datepicker-toggle matSuffix [for]="dobPicker"></mat-datepicker-toggle>
+                  <mat-datepicker #dobPicker></mat-datepicker>
+                </mat-form-field>
+              </div>
+              <div class="col-md-6">
+                <mat-form-field class="example-full-width">
+                  <input matInput placeholder="Place Of Birth" type="text" name="placeOfBirth" [(ngModel)]="addEmployeeRequest.placeOfBith">
+                </mat-form-field>
+              </div>
+              <div class="col-md-6">
+                <mat-form-field class="example-full-width">
+                  <input matInput placeholder="First Supervisor" type="text" name="firstSupervisor" [(ngModel)]="addEmployeeRequest.firstSupervisor">
+                </mat-form-field>
+              </div>
+              <div class="col-md-6">
+                <mat-form-field class="example-full-width">
+                  <input matInput placeholder="Second Supervisor" type="text" name="secondSupervisor" [(ngModel)]="addEmployeeRequest.secondSupervisor">
+                </mat-form-field>
+              </div>
+              <div class="col-md-6">
+                <mat-form-field class="example-full-width">
+                  <input matInput placeholder="Pension Number" type="text" name="pensionNo" [(ngModel)]="addEmployeeRequest.pensionNo">
+                </mat-form-field>
+              </div>
+              <div class="row">
+                <div class="col-md-4">
+                  <mat-form-field class="example-full-width">
+                    <input matInput placeholder="Crime Description" type="text" name="crimeDescription" [(ngModel)]="addEmployeeRequest.crimeDescription">
+                  </mat-form-field>
+                </div>
+                <div class="col-md-6">
+                  <mat-slide-toggle name="crimeStatus" [(ngModel)]="addEmployeeRequest.crime">Crime</mat-slide-toggle>
+                </div>
+              </div>
+            </div>
+            <button mat-raised-button type="submit" class="btn btn-danger pull-right">Save Profile</button>
+            <div class="clearfix"></div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,18 @@
+<!-- navbar.component.html -->
+<div class="mt-5">
+  <nav class="navbar navbar-expand navbar-light bg-light">
+    <div class="container-fluid mt-2 p-2">
+      <ul class="horizontal-list d-flex align-items-center ml-5 list-unstyled">
+        <li *ngFor="let button of buttons">
+          <a *ngIf="!button.dropdownOptions" routerLink="{{ button.route }}" class="btn btn-gray btn-sm ml-5">{{ button.label }}</a>
+          <!-- <div *ngIf="button.dropdownOptions" >
+            <a mat-button [matMenuTriggerFor]="button.menu" class="btn btn-gray btn-sm">{{ button.label }}</a>
+            <mat-menu #menu="matMenu">
+              <a mat-menu-item *ngFor="let option of button.dropdownOptions" [routerLink]="option.route">{{ option.label }}</a>
+            </mat-menu>
+          </div> -->
+        </li>
+      </ul>
+    </div>
+  </nav>
+</div>

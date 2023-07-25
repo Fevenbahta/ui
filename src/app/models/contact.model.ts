@@ -7,9 +7,10 @@ export interface Contact{
   // updatedDate: string,
   // updatedBy: string,
   // isActive: Boolean
-  
+  status:number;
+  pId:number;
   id: String,
- empId:String, 
+  empId:String, 
 createdBy: String, 
   createdDate: String, 
   updatedDate: String, 
@@ -18,10 +19,10 @@ createdBy: String,
   town: String, 
   phoneNumber: String, 
   email: String,
-  postNumber:String,
-  houseNumber: String,
+  postCode:Number,
+  houseNo: String,
   Kebele:String,
   woreda:String ,
-  subcity:String
+  subCity:String
 }   
 
