@@ -10,6 +10,7 @@ departmentId:String
 
 }
 export interface Step{
+  pId: number,
   id: String,
  salary: number,
 salaryTypeId: String,
@@ -23,6 +24,7 @@ status:0,
 
 }
 export interface Position{
+  pId: number,
   divisionId: String;
   status:number;
 positionId: String,

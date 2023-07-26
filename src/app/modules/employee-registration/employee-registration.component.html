@@ -158,8 +158,10 @@
                   </div>
                 </div>
               </div>
-              <button mat-raised-button type="submit" class="btn btn-danger pull-right">Save Profile</button>
-              <div class="clearfix"></div>
+              <button mat-raised-button type="submit" class="btn btn-success pull-right">Save Profile</button>
+              <div *ngIf="employeeSaved" class="alert alert-success mt-3">
+                Employee added successfully!
+               </div><div class="clearfix"></div>
             </form>
           </div>
         </div>

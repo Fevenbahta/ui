@@ -16,7 +16,7 @@ import { QualificationComponent } from './modules/qualification/qualification.co
 import { SpouseComponent } from './modules/spouse/spouse.component';
 import { TrainingComponent } from './modules/training/training.component';
 import { EmergencycontactComponent } from './modules/emergencycontact/emergencycontact.component';
-import { DepositeAuthenticatonComponent } from './modules/deposite-authenticaton/deposite-authenticaton.component';
+import { DepositeAuthenticationComponent } from './modules/deposite-authenticaton/deposite-authenticaton.component';
 
 const routes: Routes = [
   {path: '',
@@ -46,7 +46,7 @@ component: TrainingComponent},
 {path:'employee-registration/emergency-contact',
 component: EmergencycontactComponent},
 {path:'employee-registration/deposite-authentication',
-component: DepositeAuthenticatonComponent},
+component: DepositeAuthenticationComponent},
 
 {path:'admin',
 component: PositionComponent},

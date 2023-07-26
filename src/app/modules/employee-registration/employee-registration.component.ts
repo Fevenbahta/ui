@@ -84,6 +84,9 @@ import { PidService } from 'app/service/pid.service';
 export class EmployeeRegistrationComponent implements OnInit {
   employeeForm: FormGroup;
 
+ employeeSaved: boolean = false;
+ employees: Employee[] = [];
+
   buttons = [
     { label: ' Add Employee ', route: '/employee-registration' },
     { label: '  List Employee ', route: '/employee-list' }
@@ -133,7 +136,16 @@ export class EmployeeRegistrationComponent implements OnInit {
 
       this.employeeservice.addEmployee(formData).subscribe({
         next: (contact) => {
-          this.router.navigate(['/employee-registration/contact']);
+     
+          this.employeeSaved = true;
+          setTimeout(() => {
+            this.employeeSaved = false;
+          }, 2000);
+          // Add the current work experience to the array
+          this.employees.push({ ...this.employeeForm.value });
+          // Reset the form fields
+     
+            this.router.navigate(['/employee-registration/contact']);
         },
         error: (response) => {
           console.log(response);

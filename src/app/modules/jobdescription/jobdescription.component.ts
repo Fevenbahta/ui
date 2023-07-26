@@ -16,6 +16,8 @@ import { StepService } from 'app/service/step.service';
   styleUrls: ['./jobdescription.component.scss']
 })
 export class JobdescriptionComponent implements OnInit {
+  jobdescriptionSaved: boolean = false;
+employeepositions:EmployeePosition[]=[]
 
   divisions:Division[]= [];
   selectedDivision: string='';
@@ -90,8 +92,30 @@ addEmployeePosition(){
   this.addEmployeePositionRequest.branchId = this.selectedBranch;
   this.employeepositionservice.addEmployeePosition(this.addEmployeePositionRequest)
   .subscribe({
-  next:(employee)=>{
-  this.router.navigate([employee])
+  next:()=>{
+    this.jobdescriptionSaved = true;
+    setTimeout(() => {
+      this.jobdescriptionSaved = false;
+    }, 2000);
+    // Add the
+     this.employeepositions.push({ ...this.addEmployeePositionRequest });
+
+    this.addEmployeePositionRequest={
+      pid:0,
+      id:  "3fa85f64-5717-4563-b2fc-2c963f64afa9",
+    divisionId:'',
+    stepId: '',
+    branchId: 'string',
+    position: '',
+    status:0,
+    startDate: '',
+    endDate: '2023-07-21T08:09:41.138Z',
+  createdBy: '',
+  createdDate: '2023-07-21T08:09:41.138Z',
+  updatedDate: '2023-07-21T08:09:41.138Z',
+  updatedBy: '',
+  
+    }
   },
    error(response){
     console.log(response)

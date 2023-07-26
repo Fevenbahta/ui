@@ -1,10 +1,18 @@
-export interface Department{
-    id: number;
-    name:string;
-    description:string;
+export interface EmergencyContact{
+  pId:number;
+    id?: string;
   createdBy: string,
   createdDate: string,
   updatedDate: string,
   updatedBy: string,
-  isActive: Boolean
+  status:number,
+  empId: string,
+  name: string,
+  town: string,
+  region: string,
+  subCity: string,
+  kebele: string,
+  houseNo: string,
+  phoneNumber: string,
+  relationship: string,
 }

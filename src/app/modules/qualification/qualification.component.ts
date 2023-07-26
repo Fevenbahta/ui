@@ -84,6 +84,9 @@ export class QualificationComponent implements OnInit {
     this.workExperienceService.addWorkExperience(this.addWorkExperienceRequest).subscribe({
       next: (employee) => {
         this.workExperienceSaved = true;
+        setTimeout(() => {
+          this.workExperienceSaved = false;
+        }, 2000);
         // Add the current work experience to the array
         this.workExperiences.push({ ...this.addWorkExperienceRequest });
         // Reset the form fields
@@ -116,6 +119,9 @@ export class QualificationComponent implements OnInit {
     this.educationservice.addEducation(this.addEducationRequest).subscribe({
       next: (employee) => {
         this.educationSaved = true;
+        setTimeout(() => {
+          this.educationSaved = false;
+        }, 2000);
         // Add the current education to the array
         this.educations.push({ ...this.addEducationRequest });
         // Reset the form fields

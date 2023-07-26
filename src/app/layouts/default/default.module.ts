@@ -46,7 +46,7 @@ import { QualificationComponent } from 'app/modules/qualification/qualification.
 import { SpouseComponent } from 'app/modules/spouse/spouse.component';
 import { TrainingComponent } from 'app/modules/training/training.component';
 import { EmergencycontactComponent } from 'app/modules/emergencycontact/emergencycontact.component';
-import { DepositeAuthenticatonComponent } from 'app/modules/deposite-authenticaton/deposite-authenticaton.component';
+import { DepositeAuthenticationComponent } from 'app/modules/deposite-authenticaton/deposite-authenticaton.component';
 
 
 
@@ -69,8 +69,10 @@ import { DepositeAuthenticatonComponent } from 'app/modules/deposite-authenticat
 EmployeeListComponent,
 QualificationComponent,
 SpouseComponent,
-TrainingComponent,EmergencycontactComponent,
-DepositeAuthenticatonComponent,SpouseComponent
+TrainingComponent,
+SpouseComponent,
+EmergencycontactComponent,
+DepositeAuthenticationComponent
 
   ],
   imports: [

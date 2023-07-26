@@ -39,7 +39,9 @@ export class SpouseComponent implements OnInit {
     this.spouseservice.addSpouse(this.addSpouseRequest).subscribe({
       next: (employee) => {
         this.spouseSaved = true;
-    
+        setTimeout(() => {
+          this.spouseSaved = false;
+        }, 2000);
         this.spouses.push({ ...this.addSpouseRequest });
 
         this.addSpouseRequest = {

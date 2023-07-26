@@ -19,9 +19,9 @@ export class PositionComponent implements OnInit {
 positions:Position[]=[];
 
   addPositionRequest:Position={
-  
-    positionId: "3fa85f64-5717-4562-b3fc-2c963f66afa9",
-    divisionId: " ",
+    pId: 0,
+    positionId: undefined,
+    divisionId: "",
     name: '',
     description:'',
     createdBy: '',
@@ -66,6 +66,7 @@ ngOnInit():void {
 
 
 addposition(){
+  console.log(this.addPositionRequest)
   this.addPositionRequest.divisionId = this.selectedDivision;
 this.positionservice.addPosition(this.addPositionRequest)
 .subscribe({

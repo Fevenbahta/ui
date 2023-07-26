@@ -107,8 +107,11 @@
                                   </div>
                                   </div>
            
-                        <button mat-raised-button type="submit" class="btn btn-danger pull-right">save Profile</button>
+                        <button mat-raised-button type="submit" class="btn btn-success pull-right">save Profile</button>
                         <div class="clearfix"></div>
+                        <div *ngIf="jobdescriptionSaved" class="alert alert-success mt-3">
+                         Job Description added successfully!
+                        </div>
                     </form>
                 </div>
             </div>

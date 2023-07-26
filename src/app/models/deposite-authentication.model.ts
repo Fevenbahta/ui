@@ -1,10 +1,14 @@
-export interface Department{
-    id: number;
-    name:string;
-    description:string;
+export interface DepositeAuthentication{
+  pId:number;
+    id?: string;
   createdBy: string,
   createdDate: string,
   updatedDate: string,
   updatedBy: string,
-  isActive: Boolean
+  status:number,
+  empId: string,
+  bank: string,
+  bankBranch: string,
+  bankAccount: number,
+  tinNumber: string,
 }

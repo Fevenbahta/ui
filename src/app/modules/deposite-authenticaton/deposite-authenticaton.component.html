@@ -1,47 +1,56 @@
-<div class="row">
-    <div class="col-md-12 ">
-        <app-shared-nav [buttons]="buttons"></app-shared-nav>
-    </div> 
-    <div class="col-md-3">
-      <app-min-nav></app-min-nav>
-    </div>
-  
-            <div class="col-md-8">
-              <div class="card mt-5 mb-5">
-              <div class="card">
-                  <div class="card-header card-header-danger">
-                      <h4 class="card-title">Edit Profile</h4>
-                      <p class="card-category">Complete your profile</p>
-                  </div>
-                  <div class="card-body">
-                      <form>
-                          <div class="row">
-                 
-                          <div class="row">
-                            <div class="col-md-6">
-                              <mat-form-field class="example-full-width">
-                                <input matInput placeholder=" Name" type="text" required>
-                              </mat-form-field>
-                            </div>
-                            <div class="col-md-6">
-                              <mat-form-field class="example-full-width">
-                                <input matInput placeholder="Date Of Birth" type="text">
-                              </mat-form-field>
-                            </div>
-                            <div class="col-md-6">
-                              <mat-form-field class="example-full-width">
-                                <input matInput placeholder="Relationship" type="text">
-                              </mat-form-field>
-                            </div>
-                            </div>
-                          <button mat-raised-button type="submit" class="btn btn-danger pull-right">save Profile</button>
-                          <div class="clearfix"></div></div>
-                      </form>
-                  </div>
-              </div>
-          </div>
-         
-      </div>
+<app-shared-nav  [buttons]="buttons"></app-shared-nav><div class="main-content  ">
+  <div class="container-fluid ">
+<div class="row  ">
+  <div class="col-md-3 pt-5 ">
+    <app-min-nav></app-min-nav>
   </div>
-  
-  
+
+          <div class="col-md-8 mt-5">
+            <div class="card mt-5 mb-5">
+                <div class="card">
+                    <div class="card-header card-header-danger">
+                        <h4 class="card-title">Edit DepositeAuthentications</h4>
+                        <p class="card-category">Complete your depositeauthentications</p>
+                    </div>
+                    <div class="card-body">
+                        <form (ngSubmit)="addDepositeAuthentication()">
+                    <div class="row">
+                      <div class="col-md-6">
+                        <mat-form-field class="example-full-width">
+                          <input matInput placeholder="Bank" type="text" name="bank" [(ngModel)]="addDepositeAuthenticationRequest.bank">
+                        </mat-form-field>
+                      </div>
+                      <div class="col-md-6">
+                        <mat-form-field class="example-full-width">
+                          <input matInput placeholder="Bank Branch" type="text" name="bankBranch" [(ngModel)]="addDepositeAuthenticationRequest.bankBranch">
+                        </mat-form-field>
+                      </div>  
+                       <div class="col-md-6">
+                            <mat-form-field class="example-full-width">
+                              <input matInput placeholder="Tin Number" type="text" name="tinNumber" [(ngModel)]="addDepositeAuthenticationRequest.tinNumber">
+                            </mat-form-field>
+                          </div>
+                        <div class="col-md-8">
+                          <mat-form-field class="example-full-width">Account number
+                            <input matInput placeholder=" " name="bankAccount" [(ngModel)]="addDepositeAuthenticationRequest.bankAccount "type="text"required>
+                          </mat-form-field>
+                        </div>
+                     
+ 
+                    </div>
+               
+                  
+                 
+                    <div> <button type="button" class="btn btn-sm btn-success" (click)="addDepositeAuthentication()">Add Emergency Contact</button>
+                    </div>
+                         <div *ngIf="depositeauthenticationSaved" class="alert alert-success mt-3">
+                        depositeauthentication added successfully!
+                       </div> <div class="clearfix"></div>
+                </form>
+            </div>
+        </div>
+    </div>
+   </div></div>
+</div>
+</div>
+
