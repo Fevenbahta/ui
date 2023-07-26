@@ -49,7 +49,7 @@ export class BranchComponent  {
   this.branchservice.addBranch(this.addBranchRequest)
   .subscribe({
   next:(branch)=>{
-  this.router.navigate([branch])
+  this.router.navigate(["employee-registration/branch"])
   },
    error(response){
     console.log(response)

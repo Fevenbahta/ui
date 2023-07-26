@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Training } from 'app/models/training.model';
+import { EmployeeIdService } from 'app/service/employee-id.service';
 import { TrainingService } from 'app/service/training.service';
 
 @Component({
@@ -31,11 +32,14 @@ export class TrainingComponent implements OnInit {
     { label: 'Employee List' },
     { label: 'Add Employee' }
   ];
-  constructor(private trainingService: TrainingService,) { }
+  constructor(
+    private trainingService: TrainingService,
+    private employeeIdService: EmployeeIdService,) { }
 
   ngOnInit(): void {
   }
   addTraining() {
+    this.addTrainingRequest.empId = this.employeeIdService.employeeId;
     this.trainingService.addTraining(this.addTrainingRequest)
     .subscribe({
       next: (employee) => {

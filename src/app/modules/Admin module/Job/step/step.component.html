@@ -48,23 +48,20 @@
 <table class="table" *ngIf="steps && steps.length>0">
     <thead>
         <tr>
-            <th>ID</th>
-            <th>Name</th>
-            <th>Description</th>
+            <th>Grade Level</th>
+           <th>Description</th>
+            <th>Salary</th>
+         
            
 
         </tr>
     </thead>
     <tbody>
         <tr *ngFor="let step of steps">
-            <td>{{step.id}}</td>
+          <td>{{ getGradeName(step.levelId) }} </td>
             <td>{{step.description}}</td>
             <td>{{step.salary}}</td>
-         
-     
-
-         
-            <!-- <td> <a [routerLink]="['/step','edit',step.id]"> 
+         <!-- <td> <a [routerLink]="['/step','edit',step.id]"> 
                 View
                 </a>
             </td> -->

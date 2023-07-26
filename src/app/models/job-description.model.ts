@@ -14,7 +14,7 @@ export interface Step{
   id: String,
  salary: number,
 salaryTypeId: String,
-levelId: String;
+levelId: string;
  description:string;
 createdBy: string,
 createdDate: string,
@@ -39,7 +39,7 @@ updatedBy: string,
 export interface EmployeePosition{
   pid:number;
   id: String,
-
+  empId:string;
   divisionId:String,
   stepId: String,
   branchId: String,

@@ -5,6 +5,7 @@ import { Division } from 'app/models/division.model';
 import { Employee } from 'app/models/employee.model';
 import { Branch, EmployeePosition, Position, Step } from 'app/models/job-description.model';
 import { DivisionService } from 'app/service/division.service';
+import { EmployeeIdService } from 'app/service/employee-id.service';
 
 import { EmployeePositionService } from 'app/service/employee-position';
 import { PositionService } from 'app/service/position.service';
@@ -36,7 +37,8 @@ employeepositions:EmployeePosition[]=[]
   ];
   addEmployeePositionRequest:EmployeePosition={
     pid:0,
-    id:  "3fa85f64-5717-4563-b2fc-2c963f64afa9",
+    empId:"",
+    id:  "",
   divisionId:'',
   stepId: '',
   branchId: 'string',
@@ -54,7 +56,13 @@ updatedBy: '',
 
 
 
-constructor(private divisionservice: DivisionService,private stepservice: StepService, private employeepositionservice:EmployeePositionService,private positionservice:PositionService ,private router:Router){}
+constructor(
+  private divisionservice: DivisionService,
+  private stepservice: StepService,
+  private employeepositionservice:EmployeePositionService,
+  private positionservice:PositionService ,
+  private employeeIdService:EmployeeIdService,
+  private router:Router){}
 ngOnInit(): void{
 this.divisionservice.getAllDivisions()
 .subscribe({
@@ -86,6 +94,7 @@ this.stepservice.getAllStep()
 }
 
 addEmployeePosition(){
+  this.addEmployeePositionRequest.empId = this.employeeIdService.employeeId;
   this.addEmployeePositionRequest.divisionId = this.selectedDivision;
   this.addEmployeePositionRequest.position = this.selectedPosition;
   this.addEmployeePositionRequest.stepId = this.selectedStep;
@@ -102,7 +111,8 @@ addEmployeePosition(){
 
     this.addEmployeePositionRequest={
       pid:0,
-      id:  "3fa85f64-5717-4563-b2fc-2c963f64afa9",
+      empId:'',
+      id:  "",
     divisionId:'',
     stepId: '',
     branchId: 'string',

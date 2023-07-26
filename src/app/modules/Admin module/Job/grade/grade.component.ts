@@ -60,7 +60,7 @@ status:0,
     this.gradeservice.addGrade(this.addGradeRequest)
     .subscribe({
     next:(grade)=>{
-    this.router.navigate([grade])
+    this.router.navigate(["employee-registration/grade"])
     },
      error(response){
       console.log(response)

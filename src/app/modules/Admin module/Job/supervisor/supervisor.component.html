@@ -48,7 +48,7 @@
     </thead>
     <tbody>
         <tr *ngFor="let supervisor of supervisors">
-            <td>{{supervisor.empId}}</td>
+            <td>{{ getemployeeName(supervisor.empId) }}</td>
             <td>{{supervisor.supervisorLevel}}</td>
          
          

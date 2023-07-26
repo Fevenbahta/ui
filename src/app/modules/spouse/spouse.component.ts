@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Spouse } from 'app/models/spouse.model';
+import { EmployeeIdService } from 'app/service/employee-id.service';
 import { SpouseService } from 'app/service/spouse.service';
 
 @Component({
@@ -28,7 +29,9 @@ export class SpouseComponent implements OnInit {
   };
 
 
-  constructor(private spouseservice:SpouseService) { }
+  constructor(
+    private spouseservice:SpouseService,
+    private employeeIdService: EmployeeIdService,) { }
   buttons = [
     { label: 'Employee List' },
     { label: 'Add Employee' }
@@ -36,6 +39,7 @@ export class SpouseComponent implements OnInit {
   ngOnInit(): void {
   }
   addSpouse() {
+    this.addSpouseRequest.empId = this.employeeIdService.employeeId
     this.spouseservice.addSpouse(this.addSpouseRequest).subscribe({
       next: (employee) => {
         this.spouseSaved = true;

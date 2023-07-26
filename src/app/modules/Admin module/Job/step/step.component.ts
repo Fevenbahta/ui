@@ -69,11 +69,14 @@ buttons = [
     this.stepservice.addStep(this.addStepRequest)
     .subscribe({
     next:(step)=>{
-    this.router.navigate([step])
+    this.router.navigate(["employee-registration/step"])
     },
      error(response){
       console.log(response)
     }
     })}
-
+    getGradeName(levelId: string): string {
+      const grade = this.grades.find((g) => g.levelId === levelId);
+      return grade ? grade.description : 'Unknown Grade';
+    }
 }

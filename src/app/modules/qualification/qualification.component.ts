@@ -4,6 +4,7 @@ import { Division } from 'app/models/division.model';
 import { Education, WorkExperience,} from 'app/models/work-experience.model';
 import { DivisionService } from 'app/service/division.service';
 import { EducationService } from 'app/service/education.service';
+import { EmployeeIdService } from 'app/service/employee-id.service';
 import { WorkExperienceService } from 'app/service/work-experience.service';
 
 
@@ -66,7 +67,8 @@ export class QualificationComponent implements OnInit {
     private divisionservice: DivisionService,
     private workExperienceService: WorkExperienceService,
     private educationservice: EducationService,
-    private router: Router
+    private router: Router,
+    private employeeIdService: EmployeeIdService,
   ) { }
 
   ngOnInit(): void {
@@ -81,6 +83,7 @@ export class QualificationComponent implements OnInit {
   }
 
   addWorkExperience() {
+    this.addWorkExperienceRequest.empId = this.employeeIdService.employeeId;
     this.workExperienceService.addWorkExperience(this.addWorkExperienceRequest).subscribe({
       next: (employee) => {
         this.workExperienceSaved = true;
@@ -116,6 +119,7 @@ export class QualificationComponent implements OnInit {
   }
 
   addEducation() {
+    this.addEducationRequest.empId = this.employeeIdService.employeeId;
     this.educationservice.addEducation(this.addEducationRequest).subscribe({
       next: (employee) => {
         this.educationSaved = true;

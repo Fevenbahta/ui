@@ -15,11 +15,12 @@ export class SupervisorComponent {
   supervisors:Supervisor[]=[];
 
   addSupervisorRequest: Supervisor={
-  id: '',
+
+  id: undefined,
   empId: '',
 createdBy: '',
-createdDate: '',
-updatedDate: '',
+createdDate: '2023-07-26T11:40:51.509Z',
+updatedDate: '2023-07-26T11:40:51.509Z',
 updatedBy: '',
 status:0,
 pId: 0,
@@ -64,11 +65,15 @@ supervisorLevel: '',
     this.supervisorservice.addSupervisor(this.addSupervisorRequest)
     .subscribe({
     next:(supervisor)=>{
-    this.router.navigate([supervisor])
+    this.router.navigate(["employee-registration/supervisor"])
     },
      error(response){
       console.log(response)
     }
     })}
+    getemployeeName(empId: string): string {
+      const employee = this.employees.find((g) => g.empId === empId);
+      return employee ? (employee.firstName,employee.middleName, employee.lastName )  : 'Unknown EMPLOYEE';
+    }
 }
 

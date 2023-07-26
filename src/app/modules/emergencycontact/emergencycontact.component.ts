@@ -36,7 +36,6 @@ export class EmergencycontactComponent implements OnInit {
 }
 constructor(
   private formBuilder: FormBuilder,
-
   private emergencycontactservice: EmergencyContactService,
   private employeeIdService: EmployeeIdService,
   private router:Router){}
@@ -51,7 +50,7 @@ buttons = [
   { label: 'Add Employee' }
 ];
 addEmergencyContact() {
-  
+  this.addEmergencyContactRequest.empId = this.employeeIdService.employeeId;
   this.emergencycontactservice.addEmergencyContact(this.addEmergencyContactRequest)
   .subscribe({
     next: (employee) => {
@@ -64,7 +63,7 @@ addEmergencyContact() {
       // Reset the form fields
       this.addEmergencyContactRequest = {
         pId:0,
-        id:  "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+        id:  "",
        createdBy: '', 
          createdDate: "2023-07-20T13:56:00.062Z", 
          updatedDate: "2023-07-20T13:56:00.062Z", 

@@ -71,7 +71,7 @@ addposition(){
 this.positionservice.addPosition(this.addPositionRequest)
 .subscribe({
 next:(position)=>{
-this.router.navigate([position])
+this.router.navigate(["employee-registration/position"])
 },
  error(response){
   console.log(response)
