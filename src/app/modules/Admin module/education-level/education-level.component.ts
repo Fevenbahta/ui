@@ -9,6 +9,7 @@ import { EducationLevelService } from 'app/service/educationlevel.service';
   styleUrls: ['./education-level.component.scss']
 })
 export class EducationLevelComponent implements OnInit {
+  educationLevels:EducationLevel[]=[];
   addEducationLevelRequest: EducationLevel={
     educationName:'',
 pid:'',
@@ -32,6 +33,15 @@ status:0,
   constructor(private educationLevelService :EducationLevelService,private router:Router ) { }
 
   ngOnInit(): void {
+    this.educationLevelService.getAllEducationLevels()
+    .subscribe({
+      next: (educationlevels) => {
+        this.educationLevels=educationlevels;
+      },
+      error(response){
+        console.log(response)
+      }
+    });
   }
   addEducationLevel(){
 

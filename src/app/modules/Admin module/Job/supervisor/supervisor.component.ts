@@ -12,7 +12,8 @@ import { SupervisorService } from 'app/service/supervisor.service';
 export class SupervisorComponent {
   employees:Employee[]= [];
   selectedEmployee: string='';
-  
+  supervisors:Supervisor[]=[];
+
   addSupervisorRequest: Supervisor={
   id: '',
   empId: '',
@@ -42,6 +43,16 @@ supervisorLevel: '',
     .subscribe({
       next: (employees) => {
         this.employees=employees;
+      },
+      error(response){
+        console.log(response)
+      },
+      
+    });
+    this.supervisorservice.getAllSupervisors()
+    .subscribe({
+      next: (supervisors) => {
+        this.supervisors=supervisors;
       },
       error(response){
         console.log(response)

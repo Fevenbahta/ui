@@ -1,10 +1,10 @@
 export interface Employee{
-     pId?: Number;
-     createdBy?: string;
-     createdDate?: Date | null; // Make createdDate nullable
-     updatedDate?: Date | null;
+     pId: Number;
+     createdBy: string;
+     createdDate: string | null; // Make createdDate nullable
+     updatedDate: string| null;
     updatedBy: String, 
-    empId?: string, 
+    empId: string, 
     ecxId: String, 
     adId: String, 
     firstName: String, 

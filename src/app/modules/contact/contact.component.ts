@@ -1,5 +1,6 @@
 
 import { Component } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Route, Router } from '@angular/router';
 import { Contact } from 'app/models/contact.model';
 import { ContactService } from 'app/service/contact.service';
@@ -36,15 +37,27 @@ export class ContactComponent {
     
 
 }
-constructor(private pIdservice: PidService, private contactservice: ContactService,private employeeIdService: EmployeeIdService,private router:Router){}
+constructor(
+  private formBuilder: FormBuilder,
+  private pIdservice: PidService, 
+  private contactservice: ContactService,
+  private employeeIdService: EmployeeIdService,
+  private router:Router){}
 ngOnInit():void {
 }
+contactForm: FormGroup = this.formBuilder.group({
+  phoneNumber: ['', Validators.required],
+});
 
 buttons = [
   { label: 'Employee List' },
   { label: 'Add Employee' }
 ];
 addContact(){
+  if (this.contactForm.invalid) {
+    this.contactForm.markAllAsTouched();
+    return;
+  }
   this.addContactRequest.pId = this.pIdservice.pId;
   this.addContactRequest.empId = this.employeeIdService.employeeId;
 this.contactservice.addContact(this.addContactRequest)

@@ -12,7 +12,7 @@ import { PositionService } from 'app/service/position.service';
 export class GradeComponent implements OnInit {
   positions:Position[]= [];
   selectedPosition: string='';
-  
+  grades:Grade[]=[];
   addGradeRequest: Grade={
   levelId: '',
   positionId: '',
@@ -40,6 +40,15 @@ status:0,
     .subscribe({
       next: (positions) => {
         this.positions=positions;
+      },
+      error(response){
+        console.log(response)
+      }
+    });
+    this.gradeservice.getAllGrade()
+    .subscribe({
+      next: (grades) => {
+        this.grades=grades;
       },
       error(response){
         console.log(response)

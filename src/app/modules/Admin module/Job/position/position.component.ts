@@ -15,6 +15,9 @@ import { PositionService } from 'app/service/position.service';
 export class PositionComponent implements OnInit {
   divisions:Division[]= [];
   selectedDivision: string='';
+
+positions:Position[]=[];
+
   addPositionRequest:Position={
   
     positionId: "3fa85f64-5717-4562-b3fc-2c963f66afa9",
@@ -50,7 +53,18 @@ ngOnInit():void {
     console.log(response)
   }
 });
+  this.positionservice.getAllPosition()
+  .subscribe({
+    next: (positions) => {
+      this.positions=positions;
+    },
+    error(response){
+      console.log(response)
+    }
+  });
 }
+
+
 addposition(){
   this.addPositionRequest.divisionId = this.selectedDivision;
 this.positionservice.addPosition(this.addPositionRequest)

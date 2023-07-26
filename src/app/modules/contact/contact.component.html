@@ -50,15 +50,15 @@
                               <input matInput placeholder="P.O.Box" type="text" name="postNumber" [(ngModel)]="addContactRequest.postCode">
                             </mat-form-field>
                           </div>
-                        <div class="col-md-6">
-                          <mat-form-field class="example-full-width" name="phoneNumber" [(ngModel)]="addContactRequest.phoneNumber" >
-                    
-                              <mat-label>Phone Number </mat-label>
-                              <input matInput placeholder="+251 XXX XXX XXX" name="phoneNumber" >
+                          <div class="col-md-6">
+                            <mat-form-field class="example-full-width">
+                              <mat-label>Phone Number</mat-label>
+                              <input matInput placeholder="+251 XXX XXX XXX" name="phoneNumber" [(ngModel)]="addContactRequest.phoneNumber" required>
                             </mat-form-field>
-                            
-                       
-                        </div>
+                            <mat-error *ngIf="!addContactRequest.phoneNumber && contactForm.get('phoneNumber').touched">
+                              Phone Number is required
+                            </mat-error>
+                          </div>
                     </div>
                
                   

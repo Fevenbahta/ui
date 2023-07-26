@@ -1,8 +1,9 @@
 
 <app-shared-nav [buttons]="buttons"></app-shared-nav>
 <div class="form-container">
+  <div class="row"><div class="col-md-7">
 <form (ngSubmit)="addGrade()">
-  <div class="col-md-6">
+  <div >
     <div class="form-group">
       <label for="selectedPosition">Position</label>
       <mat-form-field appearance="outline" class="w-100">
@@ -19,6 +20,42 @@
       <label for="gradeDescription">Grade Description</label>
       <textarea class="form-control" id="gradeDescription" rows="1" placeholder="Enter Grade description"  [(ngModel)]="addGradeRequest.description"  name="description" required></textarea>
     </div>
-    <button type="submit" class="btn btn-danger">Save Grade</button>
-  </form>
-  </div>
+    <button type="submit" class="btn btn-danger">Save</button>
+  </form></div>
+  <div class="container col-md-3 ml-5" >
+    <h6 class="mb-3">
+     Grade
+    </h6>
+    <!-- <div class="d-flex justify-content-end">   
+    <button class="btn btn-success" routerLink="position/add">Add Position</button>
+    </div> -->
+<table class="table" *ngIf="grades&& grades.length>0">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Description</th>
+           
+
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let grade of grades">
+            <td>{{grade.levelId}}</td>
+       
+            <td>{{grade.description}}</td>
+         
+     
+
+         
+            <!-- <td> <a [routerLink]="['/position','edit',position.id]"> 
+                View
+                </a>
+            </td> -->
+        </tr>
+    </tbody>
+</table>
+<p *ngIf="!grades || grades.length <= 0">no grades found</p>
+
+</div>
+</div></div>
+ 

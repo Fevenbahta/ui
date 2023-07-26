@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { Grade, Position, Step } from 'app/models/job-description.model';
+import { Grade, Step} from 'app/models/job-description.model';
 import { GradeService } from 'app/service/grade.service';
-import { PositionService } from 'app/service/position.service';
 import { StepService } from 'app/service/step.service';
+
 
 @Component({
   selector: 'app-step',
@@ -13,7 +13,7 @@ import { StepService } from 'app/service/step.service';
 export class StepComponent implements OnInit {
   grades:Grade[]= [];
   selectedGrade: string='';
-
+steps:Step[]=[];
 
 
   addStepRequest:Step={
@@ -48,6 +48,15 @@ buttons = [
     .subscribe({
       next: (grades) => {
         this.grades=grades;
+      },
+      error(response){
+        console.log(response)
+      }
+    });
+    this.stepservice.getAllStep()
+    .subscribe({
+      next: (steps) => {
+        this.steps=steps;
       },
       error(response){
         console.log(response)

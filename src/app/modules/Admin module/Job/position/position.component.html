@@ -1,6 +1,7 @@
 <app-shared-nav [buttons]="buttons"></app-shared-nav><div class="form-container">
+  <div class="row"><div class="col-md-7">
 <form (ngSubmit)="addposition()">
-    <div class="col-md-6">
+    <div >
         <div class="form-group">
           <label for="selectedDivision">Division</label>
           <mat-form-field appearance="outline" class="w-100">
@@ -24,6 +25,44 @@
     </div>
  
       
-    <button type="submit" class="btn btn-danger">Save Position</button>
+    <button type="submit" class="btn btn-danger">Save</button>
   </form>
+</div>
+  <div class="container col-md-3 ml-5" >
+    <h6 class="mb-3">
+        Position
+    </h6>
+    <!-- <div class="d-flex justify-content-end">   
+    <button class="btn btn-success" routerLink="position/add">Add Position</button>
+    </div> -->
+<table class="table" *ngIf="positions&& positions.length>0">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Description</th>
+           
+
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let position of positions">
+            <td>{{position.positionId}}</td>
+            <td>{{position.name}}</td>
+            <td>{{position.description}}</td>
+         
+     
+
+         
+            <!-- <td> <a [routerLink]="['/position','edit',position.id]"> 
+                View
+                </a>
+            </td> -->
+        </tr>
+    </tbody>
+</table>
+<p *ngIf="!positions || positions.length <= 0">no positions found</p>
+
+</div>
+</div>
   </div>

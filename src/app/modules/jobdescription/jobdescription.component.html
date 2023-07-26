@@ -22,7 +22,7 @@
                             <div class="col-md-6">
                               <mat-form-field>
                                 <mat-label>Joined Date</mat-label>
-                                <input matInput [matDatepicker]="picker" placeholder="Choose a date" name="joinedDate" [(ngModel)]="addEmployeePositionRequest.startDate" >
+                                <input matInput [matDatepicker]="picker" placeholder="Choose a date" required name="joinedDate" [(ngModel)]="addEmployeePositionRequest.startDate" >
                                 <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
                                 <mat-datepicker #picker></mat-datepicker>
                               </mat-form-field>
@@ -67,7 +67,7 @@
                             <div class="col-md-6">
                               <mat-form-field class="example-full-width">
                                 <mat-label>Position</mat-label>
-                                <mat-select placeholder="Select Position" name="selectedPosition" [(ngModel)]="selectedPosition" >
+                                <mat-select placeholder="Select Position" required name="selectedPosition" [(ngModel)]="selectedPosition" >
                                   <!-- Replace the options below with your actual division options -->
                                   <mat-option *ngFor="let position of positions" [value]="position.positionId">
                                     {{position.name}}
@@ -82,7 +82,7 @@
                                    <div class="col-md-6">
                                     <mat-form-field class="example-full-width">
                                       <mat-label>Step</mat-label>
-                                      <mat-select placeholder="Select Step" name="selectedStep" [(ngModel)]="selectedStep" >
+                                      <mat-select placeholder="Select Step" name="selectedStep" required [(ngModel)]="selectedStep" >
                                         <!-- Replace the options below with your actual division options -->
                                         <mat-option *ngFor="let step of steps" [value]="step.id">
                                           {{step.description}}
@@ -95,7 +95,7 @@
                                   <div class="col-md-6">
                                     <mat-form-field class="example-full-width">
                                       <mat-label>Branch</mat-label>
-                                      <mat-select placeholder="Select Branch" name="selectedBranch" [(ngModel)]="selectedBranch" >
+                                      <mat-select placeholder="Select Branch" name="selectedBranch" required [(ngModel)]="selectedBranch" >
                                         <!-- Replace the options below with your actual division options -->
                                         <mat-option *ngFor="let branch of branches" [value]="branch.id">
                                           {{branch.name}}

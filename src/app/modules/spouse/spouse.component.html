@@ -20,23 +20,29 @@
                         <div class="row">
                           <div class="col-md-6">
                             <mat-form-field class="example-full-width">
-                              <input matInput placeholder=" Name" type="text" required>
+                              <input matInput placeholder=" Name" type="text" name="name" [(ngModel)]="addSpouseRequest.name" required>
                             </mat-form-field>
                           </div>
                           <div class="col-md-6">
                             <mat-form-field class="example-full-width">
-                              <input matInput placeholder="Date Of Birth" type="text">
+                              <input matInput [matDatepicker]="dateofbirthPicker" placeholder="Date Of Birth" name="dateOfBirth" [(ngModel)]="addSpouseRequest.dateOfBirth">
+                              <mat-datepicker-toggle matSuffix [for]="dateofbirthPicker"></mat-datepicker-toggle>
+                              <mat-datepicker #dateofbirthPicker></mat-datepicker>
                             </mat-form-field>
                           </div>
                           <div class="col-md-6">
                             <mat-form-field class="example-full-width">
-                              <input matInput placeholder="Relationship" type="text">
+                              <input matInput placeholder="Relationship" name="relationship" [(ngModel)]="addSpouseRequest.relationship" type="text">
                             </mat-form-field>
                           </div>
                          
                           </div>
-                           <div class="btn btn-sm btn-success">ADD</div>
-                        <button mat-raised-button type="submit" class="btn btn-danger pull-right">save Profile</button>
+                          <div> <button type="button" class="btn btn-sm btn-success" (click)="addSpouse()">Add Spouse</button>
+                       </div>
+                            <div *ngIf="spouseSaved" class="alert alert-success mt-3">
+                           spouse added successfully!
+                          </div>
+                        <!-- <button mat-raised-button type="submit" class="btn btn-danger pull-right">save Profile</button> -->
                         <div class="clearfix"></div></div>
                     </form>
                 </div>

@@ -2,8 +2,9 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpEvent, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Employee } from 'app/models/employee.model';
-import { catchError } from 'rxjs/operators';
+import { catchError, map } from 'rxjs/operators';
 import { throwError } from 'rxjs';
+import { EmployeeIdService } from './employee-id.service';
 
 @Injectable({
   providedIn: 'root'
@@ -13,7 +14,7 @@ export class EmployeeService {
   readonly apiUrl = 'https://localhost:7008/';
   
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private employeeidservice:EmployeeIdService) { }
 
   getAllEmployees(): Observable<Employee[]> {
     return this.http.get<Employee[]>(this.apiUrl + 'api/Employee');
@@ -25,13 +26,14 @@ export class EmployeeService {
   addEmployee(addEmployeeRequest: Employee): Observable<Employee> {
     const httpOptions = { headers: new HttpHeaders({ 'Content-Type': 'application/json' }) };
     return this.http.post<Employee>(this.apiUrl + 'api/Employee', addEmployeeRequest, httpOptions)
-      .pipe(
-        catchError((error) => {
-          console.error('Error occurred during addEmployee:', error);
-          // Handle the error here, you can throw a custom error or do any other error handling
-          return throwError('An error occurred during addEmployee. Please try again later.');
-        })
-      );
+    .pipe(  
+      map(response => {  
+        // Assuming the server's response contains the empId as response.empId  
+         
+         this.employeeidservice.employeeId = response.toString();  
+        return response;  
+         
+      }),)
   }
   updateEmployee(employeeDetails: Employee, Id:number): Observable<Employee> {
     const httpOptions = { headers: new HttpHeaders({ 'Content-Type': 'application/json' }) };

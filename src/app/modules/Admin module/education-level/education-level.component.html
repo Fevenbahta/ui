@@ -1,5 +1,6 @@
 <app-shared-nav [buttons]="buttons"></app-shared-nav>
 <div class="form-container">
+  <div class="row"><div class="col-md-7">
 <form (ngSubmit)="addEducationLevel()">
     <div class="form-group">
       <label for="educationLevel">Education Level Name</label>
@@ -7,5 +8,43 @@
     </div>
 
     <button type="submit" class="btn btn-danger">Save </button>
-  </form>
-  </div>
+  </form></div>
+  <div class="container col-md-3 ml-5" >
+    <h6 class="mb-3">
+        EducationLevel
+    </h6>
+    <!-- <div class="d-flex justify-content-end">   
+    <button class="btn btn-success" routerLink="educationlevel/add">Add EducationLevel</button>
+    </div> -->
+<table class="table" *ngIf="educationLevels && educationLevels.length>0">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Education Name</th>
+      
+           
+
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let educationlevel of educationLevels">
+            <td>{{educationlevel.id}}</td>
+            <td>{{educationlevel.educationName}}</td>
+        
+         
+     
+
+         
+            <!-- <td> <a [routerLink]="['/educationlevel','edit',educationlevel.id]"> 
+                View
+                </a>
+            </td> -->
+        </tr>
+    </tbody>
+</table>
+<p *ngIf="!educationLevels || educationLevels.length <= 0">no educationlevels found</p>
+
+</div>
+
+  </div></div>
+  

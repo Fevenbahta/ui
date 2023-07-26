@@ -9,6 +9,7 @@ import { BranchService } from 'app/service/branch.service';
   styleUrls: ['./branch.component.css']
 })
 export class BranchComponent  {
+  branchs:Branch[]=[]
   addBranchRequest:Branch={
   
     id: "3fa85f64-5717-4562-b3fc-2c963f66afa6",
@@ -32,7 +33,17 @@ export class BranchComponent  {
 
   ];
   constructor(private branchservice: BranchService,private router:Router){}
-  ngOnInit():void {}
+  ngOnInit():void {
+    this.branchservice.getAllBranch()
+    .subscribe({
+      next: (branchs) => {
+        this.branchs=branchs;
+      },
+      error(response){
+        console.log(response)
+      }
+    });
+  }
   addBranch(){
    
   this.branchservice.addBranch(this.addBranchRequest)

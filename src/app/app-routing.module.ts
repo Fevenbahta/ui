@@ -11,7 +11,12 @@ import { GradeComponent } from './modules/Admin module/Job/grade/grade.component
 import { EducationLevelComponent } from './modules/Admin module/education-level/education-level.component';
 import { BranchComponent } from './modules/Admin module/Job/branch/branch.component';
 import { SupervisorComponent } from './modules/Admin module/Job/supervisor/supervisor.component';
-import { EmployeeListComponent } from './modules/Admin module/employee-list/employee-list.component';
+import { EmployeeListComponent } from './modules/employee-list/employee-list.component';
+import { QualificationComponent } from './modules/qualification/qualification.component';
+import { SpouseComponent } from './modules/spouse/spouse.component';
+import { TrainingComponent } from './modules/training/training.component';
+import { EmergencycontactComponent } from './modules/emergencycontact/emergencycontact.component';
+import { DepositeAuthenticatonComponent } from './modules/deposite-authenticaton/deposite-authenticaton.component';
 
 const routes: Routes = [
   {path: '',
@@ -31,6 +36,18 @@ component:EmployeeRegistrationComponent}
 component: ContactComponent},
 {path:'employee-registration/job-description',
 component: JobdescriptionComponent},
+
+{path:'employee-registration/qualification',
+component: QualificationComponent},
+{path:'employee-registration/spouse',
+component: SpouseComponent},
+{path:'employee-registration/training',
+component: TrainingComponent},
+{path:'employee-registration/emergency-contact',
+component: EmergencycontactComponent},
+{path:'employee-registration/deposite-authentication',
+component: DepositeAuthenticatonComponent},
+
 {path:'admin',
 component: PositionComponent},
 {path:'admin/position',

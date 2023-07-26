@@ -41,7 +41,12 @@ import { StepComponent } from 'app/modules/Admin module/Job/step/step.component'
 import { GradeComponent } from 'app/modules/Admin module/Job/grade/grade.component';
 import { BranchComponent } from 'app/modules/Admin module/Job/branch/branch.component';
 import { SupervisorComponent } from 'app/modules/Admin module/Job/supervisor/supervisor.component';
-import { EmployeeListComponent } from 'app/modules/Admin module/employee-list/employee-list.component';
+import { EmployeeListComponent } from 'app/modules/employee-list/employee-list.component';
+import { QualificationComponent } from 'app/modules/qualification/qualification.component';
+import { SpouseComponent } from 'app/modules/spouse/spouse.component';
+import { TrainingComponent } from 'app/modules/training/training.component';
+import { EmergencycontactComponent } from 'app/modules/emergencycontact/emergencycontact.component';
+import { DepositeAuthenticatonComponent } from 'app/modules/deposite-authenticaton/deposite-authenticaton.component';
 
 
 
@@ -61,7 +66,11 @@ import { EmployeeListComponent } from 'app/modules/Admin module/employee-list/em
     GradeComponent,
     BranchComponent,
     SupervisorComponent,
-EmployeeListComponent
+EmployeeListComponent,
+QualificationComponent,
+SpouseComponent,
+TrainingComponent,EmergencycontactComponent,
+DepositeAuthenticatonComponent,SpouseComponent
 
   ],
   imports: [

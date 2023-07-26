@@ -1,8 +1,9 @@
 
 <app-shared-nav [buttons]="buttons"></app-shared-nav>
 <div class="form-container">
+  <div class="row"><div class="col-md-7">
 <form (ngSubmit)="addSupervisor()">
-  <div class="col-md-6">
+  <div class="col-md-9">
     <div class="form-group">
       <label for="selectedEmployee">Employee</label>
       <mat-form-field appearance="outline" class="w-100">
@@ -26,6 +27,43 @@
     </mat-form-field>
   </div>
   
-    <button type="submit" class="btn btn-danger">Save Supervisor</button>
-  </form>
-  </div>
+    <button type="submit" class="btn btn-danger">Save </button>
+  </form></div>
+  <div class="container col-md-3 ml-5" >
+    <h6 class="mb-3">
+        Supervisor
+    </h6>
+    <!-- <div class="d-flex justify-content-end">   
+    <button class="btn btn-success" routerLink="supervisor/add">Add Supervisor</button>
+    </div> -->
+<table class="table" *ngIf="supervisors&& supervisors.length>0">
+    <thead>
+        <tr>
+            <th>ID</th>
+        
+            <th>Level</th>
+           
+
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let supervisor of supervisors">
+            <td>{{supervisor.empId}}</td>
+            <td>{{supervisor.supervisorLevel}}</td>
+         
+         
+     
+
+         
+            <!-- <td> <a [routerLink]="['/supervisor','edit',supervisor.id]"> 
+                View
+                </a>
+            </td> -->
+        </tr>
+    </tbody>
+</table>
+<p *ngIf="!supervisors || supervisors.length <= 0">no supervisors found</p>
+
+</div>
+
+  </div></div>
