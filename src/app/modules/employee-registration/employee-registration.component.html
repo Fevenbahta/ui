@@ -1,0 +1,169 @@
+<app-shared-nav [buttons]="buttons"></app-shared-nav>
+<div class="row">
+  <div class="col-md-12">
+    <!-- <app-shared-nav [buttons]="buttons"></app-shared-nav> -->
+  </div>
+  <div class="col-md-3 pt-5 ">
+    <app-min-nav></app-min-nav>
+  </div>
+  <div class="col-md-8 mt-2">
+    <div class="card mt-5 mb-5">
+      <div class="card">
+        <div class="card-header card-header-danger">
+          <h4 class="card-title">Edit Profile</h4>
+          <p class="card-category">Complete your profile</p>
+        </div>
+        <div class="card-body">
+          <form [formGroup]="employeeForm" (ngSubmit)="addEmployee()">
+            <div class="row">
+              <div class="col-md-4 form-field"> 
+                  <mat-error *ngIf="employeeForm.get('firstName').invalid && employeeForm.get('firstName').touched">
+                  First Name is required
+                </mat-error>
+                <mat-form-field class="example-full-width">
+                  <input matInput placeholder="First Name" type="text" name="firstname" formControlName="firstName" required>
+                </mat-form-field>
+             
+              </div>
+              <div class="col-md-4" >
+                      <mat-error *ngIf="employeeForm.get('middleName').invalid && employeeForm.get('middleName').touched">
+              Middle Name is required
+                </mat-error>
+                <mat-form-field class="example-full-width">
+                  <input matInput placeholder="Middle Name" name="middlename" formControlName="middleName" required type="text">
+                </mat-form-field>
+          
+              </div>
+              <div class="col-md-4">
+                      <mat-error *ngIf="employeeForm.get('lastName').invalid && employeeForm.get('lastName').touched">
+                  Last Name is required
+                </mat-error>
+                <mat-form-field class="example-full-width">
+                  <input matInput placeholder="Last Name" name="lastname" formControlName="lastName" required type="text">
+                </mat-form-field>
+          
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-4">
+                <mat-error *ngIf="employeeForm.get('nationality').invalid && employeeForm.get('nationality').touched">
+                  Nationality is required
+                </mat-error>
+                <mat-form-field class="example-full-width">
+                  <input matInput placeholder="Nationality" name="nationality" formControlName="nationality" type="text">
+                </mat-form-field>
+                
+              </div>
+              <div class="col-md-4">
+                <mat-error *ngIf="employeeForm.get('salutation').invalid && employeeForm.get('salutation').touched">
+                  Salutation is required
+                </mat-error>
+                <mat-form-field> 
+                  <mat-label>Title</mat-label>
+                  <mat-select placeholder="Salutation" name="salutation" formControlName="salutation" required>
+                    <mat-option value="mr">Mr.</mat-option>
+                    <mat-option value="mrs">Mrs.</mat-option>
+                    <mat-option value="miss">Miss</mat-option>
+                    <mat-option value="dr">Dr.</mat-option>
+                  </mat-select>
+                </mat-form-field>
+               
+              </div>
+              <div class="col-md-6">  
+                 <mat-error *ngIf="employeeForm.get('sex').invalid && employeeForm.get('sex').touched">
+                  Gender is required
+                </mat-error>
+                <mat-radio-group name="sex" formControlName="sex" required>
+                  <p><mat-label>Gender:</mat-label></p>
+                  <mat-radio-button value="male" class="radio-option">Male</mat-radio-button>
+                  <mat-radio-button value="female" class="radio-option">Female</mat-radio-button>
+                </mat-radio-group>
+             
+              </div>
+              <div class="col-md-6">
+                <mat-form-field><mat-error *ngIf="employeeForm.get('joinDate').invalid && employeeForm.get('joinDate').touched">
+                  Joined Date is required
+                </mat-error>
+                  <mat-label>Joined Date</mat-label>
+                  <input matInput [matDatepicker]="jdpicker" placeholder="Choose a date" name="joinDate" required formControlName="joinDate">
+                  <mat-datepicker-toggle matSuffix [for]="jdpicker"></mat-datepicker-toggle>
+                  <mat-datepicker #jdpicker></mat-datepicker>
+                </mat-form-field>
+                
+              </div>
+              <div class="col-md-6">
+                <mat-radio-group name="martialStatus" formControlName="martialStatus" required>  
+                    <mat-error *ngIf="employeeForm.get('martialStatus').invalid && employeeForm.get('martialStatus').touched">
+                  Marital Status is required
+                </mat-error>
+                  <p><mat-label>Marital Status:</mat-label></p>
+                  <mat-radio-button value="married" class="radio-option">Married</mat-radio-button>
+                  <mat-radio-button value="single" class="radio-option">Single</mat-radio-button>
+                </mat-radio-group>
+            
+              </div>
+              <div class="col-md-6">
+                <mat-form-field> <mat-error *ngIf="employeeForm.get('dateOfBityh').invalid && employeeForm.get('dateOfBityh').touched">
+                    Date of Birth is required
+                  </mat-error>
+                  <mat-label>Date of Birth</mat-label>
+                  <input matInput [matDatepicker]="dobPicker" required placeholder="Choose a date" name="dateOfBityh" formControlName="dateOfBityh">
+                  <mat-datepicker-toggle matSuffix [for]="dobPicker"></mat-datepicker-toggle>
+                  <mat-datepicker #dobPicker></mat-datepicker>
+                  </mat-form-field>
+                 
+               </div>
+              <div class="col-md-6">
+                  <mat-form-field class="example-full-width"> <mat-error *ngIf="employeeForm.get('placeOfBith').invalid && employeeForm.get('placeOfBith').touched">
+                    Place of Birth is required
+                  </mat-error>
+                    <input matInput placeholder="Place Of Birth" required type="text" name="placeOfBith" formControlName="placeOfBith">
+                  </mat-form-field>
+                 
+                </div>
+                <div class="col-md-6">
+                  <mat-form-field class="example-full-width">   <mat-error *ngIf="employeeForm.get('firstSupervisor').invalid && employeeForm.get('firstSupervisor').touched">
+                    First Supervisor is required
+                  </mat-error>
+                    <input matInput placeholder="First Supervisor" required type="text" name="firstSupervisor" formControlName="firstSupervisor">
+                  </mat-form-field>
+               
+                </div>
+                <div class="col-md-6">
+                  <mat-form-field class="example-full-width"> 
+                      <mat-error *ngIf="employeeForm.get('secondSupervisor').invalid && employeeForm.get('secondSupervisor').touched">
+                    Second Supervisor is required
+                  </mat-error>
+                    <input matInput placeholder="Second Supervisor" required type="text" name="secondSupervisor" formControlName="secondSupervisor">
+                  </mat-form-field>
+               
+                </div>
+                <div class="col-md-6">
+                  <mat-form-field class="example-full-width"> 
+                      <mat-error *ngIf="employeeForm.get('pensionNo').invalid && employeeForm.get('pensionNo').touched">
+                    Pension Number is required
+                  </mat-error>
+                    <input matInput placeholder="Pension Number" type="text" name="pensionNo" formControlName="pensionNo">
+                  </mat-form-field>
+               
+                </div>
+                <div class="row">
+                  <div class="col-md-6">
+                    <mat-form-field class="example-full-width">
+                      <input matInput placeholder="Crime Description" type="text" name="crimeDescription" formControlName="crimeDescription">
+                    </mat-form-field>
+                  </div>
+                  <div class="col-md-6">
+                    <mat-slide-toggle name="crimeStatus" formControlName="crime">Crime</mat-slide-toggle>
+                  </div>
+                </div>
+              </div>
+              <button mat-raised-button type="submit" class="btn btn-danger pull-right">Save Profile</button>
+              <div class="clearfix"></div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  

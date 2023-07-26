@@ -1,0 +1,78 @@
+<app-shared-nav [buttons]="buttons"></app-shared-nav>
+<div class="form-container">
+  <div class="row"><div class="col-md-7">
+<form (ngSubmit)="addstep()">
+
+    <div >
+        <div class="form-group">
+          <label for="selectedGrade">Grade Level</label>
+          <mat-form-field appearance="outline" class="w-100">
+            <mat-label>Select Grade Level</mat-label>
+            <mat-select placeholder="Select Grade Level" name="selectedGrade" required [(ngModel)]="selectedGrade">
+              <mat-option *ngFor="let grade of grades" [value]="grade.levelId">
+                {{ grade.description }}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+      </div>
+ 
+   
+        <div class="form-group">
+      <label for="stepDescription">Step Description</label>
+      <textarea class="form-control" id="stepDescription" rows="1" required placeholder="Enter step description"  name="description" [(ngModel)]="addStepRequest.description" name="description" required></textarea>
+    </div>
+ 
+    <div class="form-group">
+        <label for="Salary">Salary</label>
+        <input type="text" class="form-control" id="salary" required placeholder="Enter Salary"  name="name" [(ngModel)]="addStepRequest.salary" name="salary" required>
+      </div>
+      <!-- <div class="form-group">
+        <label for="salaryType">Salary Type</label>
+        <select class="form-control" id="salaryType" name="salaryType" required>
+          <option value="" disabled>Select salary type</option>
+     
+          <option value="value 1 "> Basic </option>
+        </select>
+      </div>
+       -->
+    <button type="submit" class="btn btn-danger">Save</button>
+  </form></div>
+  <div class="container col-md-3 ml-5" >
+    <h6 class="mb-3">
+        Step
+    </h6>
+    <!-- <div class="d-flex justify-content-end">   
+    <button class="btn btn-success" routerLink="step/add">Add Step</button>
+    </div> -->
+<table class="table" *ngIf="steps && steps.length>0">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Description</th>
+           
+
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let step of steps">
+            <td>{{step.id}}</td>
+            <td>{{step.description}}</td>
+            <td>{{step.salary}}</td>
+         
+     
+
+         
+            <!-- <td> <a [routerLink]="['/step','edit',step.id]"> 
+                View
+                </a>
+            </td> -->
+        </tr>
+    </tbody>
+</table>
+<p *ngIf="!steps || steps.length <= 0">no steps found</p>
+
+</div>
+</div></div>
+  

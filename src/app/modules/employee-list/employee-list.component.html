@@ -1,0 +1,69 @@
+<app-shared-nav  [buttons]="buttons"></app-shared-nav>
+
+
+
+  <div class="main-content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card" style="width: 150%;">
+                    <div class="card-header card-header-danger">
+                        <h4 class="card-title ">Employee Table</h4>
+    
+                    </div>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table" *ngIf="employees&& employees.length>0">
+                                <thead>
+                                    <tr>
+                                        
+                                        <th>First Name</th>
+                                        <th>Middle Name</th>
+                                        <th>Last Name</th>
+                                        <th>Sex</th>
+                                        <th>ECXID</th>
+                                        <th>Date of Birth</th>
+                                        <th>Pension Id</th>
+                                        <th>Tin Number</th>
+                                        <th>placeOfBirth</th>
+                                        <th>Nationality</th>
+                                        <th>Martial Status</th>
+                                        <th>firstSupervisor</th>
+                                        <th>secondSupervisor</th>
+                            
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr *ngFor="let employee of employees">
+                                        <td>{{employee.firstName}}</td>
+                                        <td>{{employee.middleName}}</td>
+                                        <td>{{employee.lastName}}</td>
+                                        <td>{{employee.sex}}</td>
+                                            <td>{{employee.ecxId}}</td>
+                                            <td>{{employee.dateOfBityh}}</td>
+                                            
+                                        <td>{{employee.pensionNo}}</td>
+                                        
+                                        <td>{{employee.placeOfBith}}</td><!-- <td>{{employee.resegnationDate}}</td> -->
+                                       <td>{{employee.nationality}}</td> 
+                                       <td>{{employee.martialStatus}}</td>
+                                       <td>{{employee.firstSupervisor}}</td>
+                                       <td>{{employee.secondSupervisor}}</td>
+                                    
+                                     
+                                        <!-- <td> <a [routerLink]="['/employee','edit',employee.id]"> 
+                                            View
+                                            </a>
+                                        </td> -->
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <p *ngIf="!employees || employees.length <= 0">no employees found</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+  </div>
+  

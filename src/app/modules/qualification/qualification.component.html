@@ -1,0 +1,123 @@
+<div class="row">
+  <div class="col-md-12">
+    <app-shared-nav [buttons]="buttons"></app-shared-nav>
+  </div> 
+  <div class="col-md-3">
+    <app-min-nav></app-min-nav>
+  </div>
+  <div class="col-md-8">
+    <div class="card mt-5 mb-5">
+      <div class="card">
+        <div class="card-header card-header-danger">
+          <h4 class="card-title">Edit Qualification</h4>
+          <p class="card-category">Complete your Qualification</p>
+        </div>
+        <div class="card-body">
+          <!-- Education Form -->
+          <form (ngSubmit)="addEducation()">
+            <div><p>Education</p></div>
+            <div class="row">
+              <div class="col-md-6">
+                <mat-form-field class="example-full-width">
+                  <input matInput placeholder="Institution Name" type="text" name="nameOfInstitute" [(ngModel)]="addEducationRequest.nameOfInstitute" required>
+                </mat-form-field>
+              </div>
+              <div class="col-md-6">
+                <mat-form-field class="example-full-width">
+                  <input matInput placeholder="Field Of Study" type="text" name="fieldOfStudy" [(ngModel)]="addEducationRequest.fieldOfStudy">
+                </mat-form-field>
+              </div>
+              <div class="col-md-12">
+                <mat-form-field class="example-full-width">
+                  <input matInput placeholder="Education Name" type="text" name="educationName" [(ngModel)]="addEducationRequest.eductionName">
+                </mat-form-field>
+              </div>
+              <div class="col-md-6">
+                <mat-form-field class="example-full-width">
+                  <input matInput [matDatepicker]="fromPicker" placeholder="Start Date" name="from" [(ngModel)]="addEducationRequest.from">
+                  <mat-datepicker-toggle matSuffix [for]="fromPicker"></mat-datepicker-toggle>
+                  <mat-datepicker #fromPicker></mat-datepicker>
+                </mat-form-field>
+              </div>
+              <div class="col-md-6">
+                <mat-form-field class="example-full-width">
+                  <input matInput [matDatepicker]="toPicker" placeholder="End Date" name="to" [(ngModel)]="addEducationRequest.to">
+                  <mat-datepicker-toggle matSuffix [for]="toPicker"></mat-datepicker-toggle>
+                  <mat-datepicker #toPicker></mat-datepicker>
+                </mat-form-field>
+              </div>
+              
+              <!-- Add more education form fields here... -->
+            </div>
+            <button type="button" class="btn btn-sm btn-success" (click)="addEducation()">Add Education</button>
+           
+            <!-- <button mat-raised-button type="submit" class="btn btn-danger pull-right">Save Education</button>
+            -->
+            <div *ngIf="educationSaved" class="alert alert-success mt-3">
+              Education added successfully!
+            </div>
+          </form>
+
+          <!-- Work Experience Form -->
+          <form (ngSubmit)="addWorkExperience()">
+            <div><p>Work Experience</p></div>
+            <div class="row"> 
+              <div class="col-md-6">
+                <mat-form-field class="example-full-width">
+                  <input matInput placeholder="Name" type="text" name="Name" [(ngModel)]="addWorkExperienceRequest.name">
+                </mat-form-field>
+              </div>
+              <div class="col-md-6">
+                <mat-form-field class="example-full-width">
+                  <input matInput placeholder="Company Name" type="text" name="companyName" [(ngModel)]="addWorkExperienceRequest.companyName">
+                </mat-form-field>
+              </div>
+              <div class="col-md-6">
+                <mat-form-field class="example-full-width">
+                  <input matInput placeholder="Position Held" type="text" name="postionHeld" [(ngModel)]="addWorkExperienceRequest.postionHeld">
+                </mat-form-field>
+              </div>
+              <div class="col-md-6">
+                <mat-form-field class="example-full-width">
+                  <input matInput placeholder="Description about the job" type="text" name="description" [(ngModel)]="addWorkExperienceRequest.description">
+                </mat-form-field>
+              </div>
+              <div class="col-md-6">
+                <mat-form-field class="example-full-width">
+                  <input matInput placeholder="Salary Amount" type="text" name="salary" [(ngModel)]="addWorkExperienceRequest.salary">
+                </mat-form-field>
+              </div>
+              <div class="col-md-6">
+                <mat-form-field class="example-full-width">
+                  <input matInput placeholder="Reason for termination" type="text" name="reasonTermination" [(ngModel)]="addWorkExperienceRequest.reasonTermination">
+                </mat-form-field>
+              </div>
+              <div class="col-md-6">
+                <mat-form-field class="example-full-width">
+                  <input matInput [matDatepicker]="fromPicker" placeholder="Start Date" name="from" [(ngModel)]="addWorkExperienceRequest.from">
+                  <mat-datepicker-toggle matSuffix [for]="fromPicker"></mat-datepicker-toggle>
+                  <mat-datepicker #fromPicker></mat-datepicker>
+                </mat-form-field>
+              </div>
+              <div class="col-md-6">
+                <mat-form-field class="example-full-width">
+                  <input matInput [matDatepicker]="toPicker" placeholder="End Date" name="to" [(ngModel)]="addWorkExperienceRequest.to">
+                  <mat-datepicker-toggle matSuffix [for]="toPicker"></mat-datepicker-toggle>
+                  <mat-datepicker #toPicker></mat-datepicker>
+                </mat-form-field>
+              </div>
+              
+              <!-- Add more work experience form fields here... -->
+            </div>
+            <button type="button" class="btn btn-sm btn-success" (click)="addWorkExperience()">Add Work Experience</button>
+            <!-- <button mat-raised-button type="submit" class="btn btn-danger pull-right">Save Work Experience</button>
+             -->
+            <div *ngIf="workExperienceSaved" class="alert alert-success mt-3">
+              Work Experience added successfully!
+            </div>
+            <div class="clearfix"></div></form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

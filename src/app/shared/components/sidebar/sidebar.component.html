@@ -1,0 +1,88 @@
+<!-- <div class="sidebar-wrapper">
+</div>
+<div class="sidebar "  data-background-color="white" style="border-radius: 10%;">
+    <div class="container-fluid">
+        <div>
+            <a class="logo" href="#" >
+                <div >
+                    <img class="logo-image" src="/assets/img/ECXLogo.png" />
+                </div>
+          
+            </a>
+        </div>
+        <div >
+        <ul class="sidebar-nav"style="padding-top: 10px;">
+            <li routerLinkActive="active" *ngFor="let menuItem of menuItems" >
+               
+                <a class="link sidebaritem" [routerLink]="[menuItem.path]">
+                    <i class="material-icons">{{menuItem.icon}}</i>
+                    <p class="sidebarcolor" style="padding-top: 5px;padding-bottom: 5px;padding-left: 5px;padding-right: 5px;">{{menuItem.title}}</p>
+                </a>
+            </li>
+        </ul>
+    </div>
+</div></div> -->
+
+
+<div  style="border-radius:50% ">
+    <div class="container-fluid">
+        <div class="logo">
+            <a href="#" class="simple-text">
+                <div>
+                    <img  class="logo-img"src="/assets/img/ECXLogo.png"/>
+                </div>
+           
+                   <p  class="simple-text">ECX_HRS</p>
+            </a>
+        </div>
+        <div class="sidebar-wrapper">
+        
+            <ul class="nav">
+                <li routerLinkActive="active" *ngFor="let menuItem of menuItems" class="{{menuItem.class}} nav-item">
+                    <a class="nav-link" [routerLink]="[menuItem.path]">
+                        <i class="material-icons">{{menuItem.icon}}</i>
+                        <p>{{menuItem.title}}</p>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+
+<!-- <mat-nav-list>
+    <div class="profile-card">
+        <div class="header">
+            <h2>ECX_HRS</h2>
+    
+        </div>
+         </div>
+
+    <mat-divider></mat-divider>
+
+    <div class="sidebar-wrapper">
+        
+        <ul class="sidebar-nav">
+            <li routerLinkActive="active" *ngFor="let menuItem of menuItems" class="{{menuItem.class}} nav-item">
+                <a class="nav-link" [routerLink]="[menuItem.path]">
+                    <i class="material-icons">{{menuItem.icon}}</i>
+                    <p>{{menuItem.title}}</p>
+                </a>
+            </li>
+        </ul>
+    </div>
+    <mat-divider></mat-divider>
+
+    <h2 matSubheader>Tools</h2>
+
+    <a mat-list-item routerLinkActive="list-item-active" routerLink="/contacts">
+        <mat-icon>import_contacts</mat-icon>
+        Contacts
+    </a>
+
+    <a mat-list-item routerLinkActive="list-item-active" routerLink="/contacts">
+        <mat-icon>contact_phone</mat-icon>
+        Leads
+    </a>
+
+</mat-nav-list> -->

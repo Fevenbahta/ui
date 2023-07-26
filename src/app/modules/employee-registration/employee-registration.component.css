@@ -1,0 +1,10 @@
+/* styles.css or styles.scss */
+.nav-button {
+    margin-right: 100px; /* Add desired margin between the buttons */
+  }
+/* Use a more specific selector to target .mat-error */
+.mat-form-field .mat-error {
+  color: red;
+  font-size: 12px;
+  margin-top: 0px;
+}
