@@ -1,9 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Division } from 'app/models/division.model';
+import { EducationLevel } from 'app/models/job-description.model';
 import { Education, WorkExperience,} from 'app/models/work-experience.model';
 import { DivisionService } from 'app/service/division.service';
 import { EducationService } from 'app/service/education.service';
+import { EducationLevelService } from 'app/service/educationlevel.service';
 import { EmployeeIdService } from 'app/service/employee-id.service';
 import { WorkExperienceService } from 'app/service/work-experience.service';
 
@@ -15,6 +17,9 @@ import { WorkExperienceService } from 'app/service/work-experience.service';
 })
 export class QualificationComponent implements OnInit {
 
+  educationlevels:EducationLevel[]= [];
+  selectedEducationLevel: string='';
+  
   educationSaved: boolean = false;
   workExperienceSaved: boolean = false;
 
@@ -68,6 +73,7 @@ export class QualificationComponent implements OnInit {
     private workExperienceService: WorkExperienceService,
     private educationservice: EducationService,
     private router: Router,
+    private educationlevelservice:EducationLevelService,
     private employeeIdService: EmployeeIdService,
   ) { }
 
@@ -80,6 +86,15 @@ export class QualificationComponent implements OnInit {
         console.log(response)
       }
     });
+    this.educationlevelservice.getAllEducationLevels()
+.subscribe({
+  next: (educationlevels) => {
+    this.educationlevels=educationlevels;
+  },
+  error(response){
+    console.log(response)
+  }
+});
   }
 
   addWorkExperience() {
@@ -120,6 +135,7 @@ export class QualificationComponent implements OnInit {
 
   addEducation() {
     this.addEducationRequest.empId = this.employeeIdService.employeeId;
+    this.addEducationRequest.eductionName = this.selectedEducationLevel;
     this.educationservice.addEducation(this.addEducationRequest).subscribe({
       next: (employee) => {
         this.educationSaved = true;

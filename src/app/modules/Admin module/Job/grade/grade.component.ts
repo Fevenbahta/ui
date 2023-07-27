@@ -14,12 +14,12 @@ export class GradeComponent implements OnInit {
   selectedPosition: string='';
   grades:Grade[]=[];
   addGradeRequest: Grade={
-  levelId: '',
+  levelId: undefined,
   positionId: '',
   description: '',
 createdBy: '',
-createdDate: '',
-updatedDate: '',
+createdDate: '2023-07-21T13:28:13.132Z',
+updatedDate: '2023-07-21T13:28:13.132Z',
 updatedBy: '',
 status:0,
 }
@@ -66,4 +66,8 @@ status:0,
       console.log(response)
     }
     })}
+    getPositionName(positionId: string): string {
+      const position = this.positions.find((g) => g.positionId === positionId);
+      return position ? position.name : 'Unknown Grade';
+    }
 }

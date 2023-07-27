@@ -44,8 +44,8 @@ import { EmployeeIdService } from 'app/service/employee-id.service';
   });
   
   buttons = [
-    { label: 'Employee List' },
-    { label: 'Add Employee' }
+    { label: ' Add Employee ', route: '/employee-registration' },
+    { label: '  List Employee ', route: '/employee-list' }
   ];
   addDepositeAuthentication() {
     this.addDepositeAuthenticationRequest.empId = this.employeeIdService.employeeId;

@@ -33,8 +33,8 @@ export class SpouseComponent implements OnInit {
     private spouseservice:SpouseService,
     private employeeIdService: EmployeeIdService,) { }
   buttons = [
-    { label: 'Employee List' },
-    { label: 'Add Employee' }
+    { label: ' Add Employee ', route: '/employee-registration' },
+    { label: '  List Employee ', route: '/employee-list' }
   ];
   ngOnInit(): void {
   }

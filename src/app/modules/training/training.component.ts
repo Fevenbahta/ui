@@ -29,8 +29,8 @@ export class TrainingComponent implements OnInit {
  
 
   buttons = [
-    { label: 'Employee List' },
-    { label: 'Add Employee' }
+    { label: ' Add Employee ', route: '/employee-registration' },
+    { label: '  List Employee ', route: '/employee-list' }
   ];
   constructor(
     private trainingService: TrainingService,

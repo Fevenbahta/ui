@@ -3,8 +3,9 @@ import { Router } from '@angular/router';
 import { Division } from 'app/models/division.model';
 
 import { Employee } from 'app/models/employee.model';
-import { Branch, EmployeePosition, Position, Step } from 'app/models/job-description.model';
+import { Branch, EducationLevel, EmployeePosition, Position, Step } from 'app/models/job-description.model';
 import { DivisionService } from 'app/service/division.service';
+import { EducationLevelService } from 'app/service/educationlevel.service';
 import { EmployeeIdService } from 'app/service/employee-id.service';
 
 import { EmployeePositionService } from 'app/service/employee-position';
@@ -22,6 +23,8 @@ employeepositions:EmployeePosition[]=[]
 
   divisions:Division[]= [];
   selectedDivision: string='';
+
+
    positions:Position[]= [];
   selectedPosition: string='';
   branches:Branch[]= [];
@@ -62,6 +65,7 @@ constructor(
   private employeepositionservice:EmployeePositionService,
   private positionservice:PositionService ,
   private employeeIdService:EmployeeIdService,
+
   private router:Router){}
 ngOnInit(): void{
 this.divisionservice.getAllDivisions()
@@ -91,6 +95,7 @@ this.stepservice.getAllStep()
     console.log(response)
   }
 });
+
 }
 
 addEmployeePosition(){

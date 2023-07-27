@@ -27,11 +27,15 @@
                   <input matInput placeholder="Field Of Study" type="text" name="fieldOfStudy" [(ngModel)]="addEducationRequest.fieldOfStudy">
                 </mat-form-field>
               </div>
-              <div class="col-md-12">
+              <div class="col-md-6">
                 <mat-form-field class="example-full-width">
-                  <input matInput placeholder="Education Name" type="text" name="educationName" [(ngModel)]="addEducationRequest.eductionName">
-                </mat-form-field>
-              </div>
+                  <mat-label>Education level</mat-label>
+                  <mat-select placeholder="Select educationlevel" name="selectedEducationLevel" required [(ngModel)]="selectedEducationLevel" >
+                    <!-- Replace the options below with your actual division options -->
+                    <mat-option *ngFor="let educationlevel of educationlevels" [value]="educationlevel.id">
+                      {{educationlevel.educationName}}
+                    </mat-option></mat-select></mat-form-field>
+                    </div>
               <div class="col-md-6">
                 <mat-form-field class="example-full-width">
                   <input matInput [matDatepicker]="fromPicker" placeholder="Start Date" name="from" [(ngModel)]="addEducationRequest.from">
@@ -46,9 +50,8 @@
                   <mat-datepicker #toPicker></mat-datepicker>
                 </mat-form-field>
               </div>
-              
-              <!-- Add more education form fields here... -->
-            </div>
+          </div>
+            
             <button type="button" class="btn btn-sm btn-success" (click)="addEducation()">Add Education</button>
            
             <!-- <button mat-raised-button type="submit" class="btn btn-danger pull-right">Save Education</button>
@@ -79,7 +82,7 @@
               </div>
               <div class="col-md-6">
                 <mat-form-field class="example-full-width">
-                  <input matInput placeholder="Description about the job" type="text" name="description" [(ngModel)]="addWorkExperienceRequest.description">
+                  <input matInput placeholder="Description" type="text" name="description" [(ngModel)]="addWorkExperienceRequest.description">
                 </mat-form-field>
               </div>
               <div class="col-md-6">

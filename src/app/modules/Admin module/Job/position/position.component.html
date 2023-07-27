@@ -1,4 +1,4 @@
-<app-shared-nav [buttons]="buttons"></app-shared-nav><div class="form-container">
+<!-- <app-shared-nav [buttons]="buttons"></app-shared-nav><div class="form-container">
   <div class="row"><div class="col-md-7">
 <form (ngSubmit)="addposition()">
     <div >
@@ -32,14 +32,12 @@
     <h6 class="mb-3">
         Position
     </h6>
-    <!-- <div class="d-flex justify-content-end">   
-    <button class="btn btn-success" routerLink="position/add">Add Position</button>
-    </div> -->
+
 <table class="table" *ngIf="positions&& positions.length>0">
     <thead>
         <tr>
-            <th>ID</th>
-            <th>Name</th>
+            <th>Division </th>
+            <th> Position Name</th>
             <th>Description</th>
            
 
@@ -47,17 +45,11 @@
     </thead>
     <tbody>
         <tr *ngFor="let position of positions">
-            <td>{{position.positionId}}</td>
+            <td>{{ getDivisionName(position.divisionId) }}</td>
             <td>{{position.name}}</td>
             <td>{{position.description}}</td>
          
      
-
-         
-            <!-- <td> <a [routerLink]="['/position','edit',position.id]"> 
-                View
-                </a>
-            </td> -->
         </tr>
     </tbody>
 </table>
@@ -65,4 +57,72 @@
 
 </div>
 </div>
-  </div>
+  </div> -->
+
+
+
+  <app-shared-nav [buttons]="buttons"></app-shared-nav> 
+ 
+  <form (ngSubmit)="addposition()"> 
+<div class="row"> 
+  
+  <div class="col-4"> 
+    <div class="form-group"> 
+      <label for="selectedDivision">Division</label> 
+      <mat-form-field  class="w-100"> 
+        <mat-label>Select Division 
+ 
+        </mat-label> 
+        <mat-select placeholder="Select Division" name="selectedDivision" required [(ngModel)]="selectedDivision"> 
+          <mat-option *ngFor="let division of divisions" [value]="division.divisionId"> 
+            {{ division.description }} 
+          </mat-option> 
+        </mat-select> 
+      </mat-form-field> 
+    </div> 
+    </div> 
+  <div class="col-4"> 
+    <div class="form-group"> 
+ 
+      <label for="positionName">Position Name</label> 
+      <input type="text" class="form-control" id="positionName" placeholder="Enter position name" required [(ngModel)]="addPositionRequest.name"name="name" required> 
+    </div> 
+  </div> 
+  <div class="col-4"> 
+    <div class="form-group"> 
+      <label for="positionDescription">Position Description</label> 
+      <textarea class="form-control" id="positionDescription" rows="1" placeholder="Enter position description" required [(ngModel)]="addPositionRequest.description" name="description" required></textarea> 
+    </div> 
+  </div> 
+ 
+ 
+ 
+ 
+</div> 
+<button type="submit" class="btn btn-success">Save</button> 
+</form> 
+<table id="example1" class="table table-bordered table-striped"> 
+  <thead> 
+  <tr> 
+    <th>Division </th>
+    <th> Position Name</th>
+    <th>Description</th>
+  </tr> 
+</thead> 
+ <tbody> 
+      <tr *ngFor="let position of positions"> 
+        <td>{{ getDivisionName(position.divisionId) }}</td>
+        <td>{{position.name}}</td>
+        <td>{{position.description}}</td>
+     
+        
+    
+
+        
+          <!-- <td> <a [routerLink]="['/position','edit',position.id]">  
+              View 
+              </a> 
+          </td> --> 
+      </tr> 
+  </tbody> 
+</table>

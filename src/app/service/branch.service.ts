@@ -28,7 +28,7 @@ export class BranchService {
     return this.http.post<Branch>(this.apiUrl + 'api/Branch', addBranchRequest,httpOptions);
   }
 
-  updateBranch(branchDetails:Step, Id:number): Observable<Branch> {
+  updateBranch(branchDetails:Branch, Id:number): Observable<Branch> {
     const httpOptions = { headers: new HttpHeaders({ 'Content-Type': 'application/json' }) };
     return this.http.put<Branch>(this.apiUrl + 'api/Branch/'+Id, branchDetails,httpOptions);
   }

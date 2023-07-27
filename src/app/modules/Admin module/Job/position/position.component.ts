@@ -76,5 +76,9 @@ this.router.navigate(["employee-registration/position"])
  error(response){
   console.log(response)
 }
-})}}
+})}
+getDivisionName(divisionId: string): string {
+  const division = this.divisions.find((g) => g.divisionId === divisionId);
+  return division ? (division.description )  : 'Unknown division';
+}}
 

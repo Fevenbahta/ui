@@ -1,48 +1,49 @@
-<app-shared-nav [buttons]="buttons"></app-shared-nav><div class="form-container">
-  <div class="row"><div class="col-md-7">
-      <form (ngSubmit)="addBranch()">
 
-        <div class="form-group">
-    
-          <label for="branchName">Branch Name</label>
-          <input type="text" class="form-control" id="branchName" required placeholder="Enter branch name"  [(ngModel)]="addBranchRequest.name"name="name" required>
-        </div>
-        <div class="form-group">
-          <label for="branchCity">Branch City</label>
-          <textarea class="form-control" id="branchCity" rows="1" required placeholder="Enter branch City" [(ngModel)]="addBranchRequest.city" name="city" required></textarea>
-        </div>
-     
+
+
+      <app-shared-nav [buttons]="buttons"></app-shared-nav> 
+      <form (ngSubmit)="addBranch()"> 
+        <div class="row"> 
           
-        <button type="submit" class="btn btn-danger">Save </button>
-      </form></div>
-      <div class="container col-md-3 ml-5" >
-        <h6 class="mb-3">
-         Branch
-        </h6>
-        <!-- <div class="d-flex justify-content-end">   
-        <button class="btn btn-success" routerLink="position/add">Add Position</button>
-        </div> -->
-    <table class="table" *ngIf="branchs&& branchs.length>0">
-        <thead>
-            <tr>
-                <th>ID</th>
-                <th>Description</th>
-                <th>City</th>
-               
-    
-            </tr>
-        </thead>
-        <tbody>
-            <tr *ngFor="let branch of branchs">
-                <td>{{branch.id}}</td>
-           
-                <td>{{branch.name}}</td>
-                <td>{{branch.city}}</td>
-         
-            </tr>
-        </tbody>
-    </table>
+          <div class="col-4"> 
+            <div class="form-group"> 
+              
+          <label for="branchName">Branch Name</label> 
+          <input type="text" class="form-control" id="branchName" required placeholder="Enter branch name"  [(ngModel)]="addBranchRequest.name"name="name" required> 
+            </div> 
+            </div> 
+          <div class="col-4"> 
+            <div class="form-group"> 
+              <label for="branchCity">Branch City</label> 
+              <textarea class="form-control" id="branchCity" rows="1" required placeholder="Enter branch City" [(ngModel)]="addBranchRequest.city" name="city" required></textarea> 
+            </div> 
+          </div> 
+        </div> 
+        <button type="submit" class="btn btn-success">Save</button> 
+        </form> 
+       
+        <h6 class="mb-3"> 
+         Branch 
+        </h6> 
+        <!-- <div class="d-flex justify-content-end">    
+        <button class="btn btn-success" routerLink="position/add">Add Position</button> 
+        </div> --> 
+    <table id="example1" class="table table-bordered table-striped"*ngIf="branchs&& branchs.length>0"> 
+        <thead> 
+            <tr> 
+              <th>Description</th>
+              <th>City</th>
+     
+            </tr> 
+        </thead> 
+        <tbody> 
+            <tr *ngFor="let branch of branchs"> 
+                <td>{{branch.id}}</td> 
+            
+                <td>{{branch.name}}</td> 
+                <td>{{branch.city}}</td> 
+          
+            </tr> 
+        </tbody> 
+    </table> 
     <p *ngIf="!branchs || branchs.length <= 0">no branchs found</p>
-    
-    </div>
-      </div></div>

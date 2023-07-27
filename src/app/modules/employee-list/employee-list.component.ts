@@ -11,8 +11,8 @@ import { EmployeeService } from 'app/service/employee.service';
 export class EmployeeListComponent {
   employees:Employee[]= [];
     buttons = [   
-    { label: 'Add Employee', route:"/employee-registration" },
-   { label: 'Employee List',route:"/employee-list" }
+      { label: ' Add Employee ', route: '/employee-registration' },
+      { label: '  List Employee ', route: '/employee-list' }
     ]
 constructor(private employeeservice: EmployeeService){}
 ngOnInit(): void{

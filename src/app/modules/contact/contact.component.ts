@@ -50,8 +50,8 @@ contactForm: FormGroup = this.formBuilder.group({
 });
 
 buttons = [
-  { label: 'Employee List' },
-  { label: 'Add Employee' }
+  { label: ' Add Employee ', route: '/employee-registration' },
+  { label: '  List Employee ', route: '/employee-list' }
 ];
 addContact(){
   if (this.contactForm.invalid) {
