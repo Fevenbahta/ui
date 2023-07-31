@@ -54,4 +54,17 @@ status:0,
       console.log(response)
     }
     })}
+    deleteEducationLevel(id:string){
+      this.educationLevelService.deleteEducationLevel(id)
+      .subscribe({
+        next: (response) => {
+          // Reload the grade list after successful deletion
+          this.educationLevelService.getAllEducationLevels().subscribe((educationLevels) => {
+            this.educationLevels = educationLevels;
+          });
+        },
+        error(response) {
+          console.log(response);
+        }
+  })}
 }

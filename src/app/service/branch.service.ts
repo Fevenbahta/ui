@@ -33,7 +33,7 @@ export class BranchService {
     return this.http.put<Branch>(this.apiUrl + 'api/Branch/'+Id, branchDetails,httpOptions);
   }
 
-  deleteBranch(Id: number): Observable<string> {
+  deleteBranch(Id: string): Observable<string> {
     const httpOptions = { headers: new HttpHeaders({ 'Content-Type': 'application/json' }) };
     return this.http.delete<string>(this.apiUrl + 'api/Branch/' + Id, httpOptions);
   }

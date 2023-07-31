@@ -19,7 +19,7 @@
             </div> 
           </div> 
         </div> 
-        <button type="submit" class="btn btn-success">Save</button> 
+        <button type="submit" class="btn btn-sm btn-success">Save</button> 
         </form> 
        
         <h6 class="mb-3"> 
@@ -42,7 +42,9 @@
             
                 <td>{{branch.name}}</td> 
                 <td>{{branch.city}}</td> 
-          
+                <td>   
+                  <button  class="btn btn-sm btn-danger" (click)="deleteBranch(branch.id)">Delete</button>
+              </td> 
             </tr> 
         </tbody> 
     </table> 

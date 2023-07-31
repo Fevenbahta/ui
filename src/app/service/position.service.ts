@@ -38,7 +38,7 @@ export class PositionService {
     return this.http.put<Position>(this.apiUrl + 'api/Position/'+Id, positionDetails,httpOptions);
   }
 
-  deletePosition(Id: number): Observable<string> {
+  deletePosition(Id: string): Observable<string> {
     const httpOptions = { headers: new HttpHeaders({ 'Content-Type': 'application/json' }) };
     return this.http.delete<string>(this.apiUrl + 'api/Position/' + Id, httpOptions);
   }

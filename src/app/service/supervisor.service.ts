@@ -33,7 +33,7 @@ export class SupervisorService {
     return this.http.put<Supervisor>(this.apiUrl + 'api/Supervisor/'+Id, supervisorDetails,httpOptions);
   }
 
-  deleteSupervisor(Id: number): Observable<string> {
+  deleteSupervisor(Id: string): Observable<string> {
     const httpOptions = { headers: new HttpHeaders({ 'Content-Type': 'application/json' }) };
     return this.http.delete<string>(this.apiUrl + 'api/Supervisor/' + Id, httpOptions);
   }

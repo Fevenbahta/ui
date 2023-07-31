@@ -37,7 +37,7 @@
      
      
     </div> 
-    <button type="submit" class="btn btn-success">Save</button> 
+    <button type="submit" class="btn btn-sm btn-success">Save</button> 
     </form> 
  
     
@@ -64,7 +64,9 @@
       <td>{{step.salary}}</td>
     
  
- 
+      <td>   
+        <button  class="btn btn-sm btn-danger" (click)="deleteStep(step.id)">Delete</button>
+    </td> 
     
       <!-- <td> <a [routerLink]="['/step','edit',step.id]">  
           View 

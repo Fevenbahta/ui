@@ -1,6 +1,6 @@
 export interface Division{
   pid:number;
-    divisionId: String;
+    divisionId: string;
 departmentId:String
     description:string;
   createdBy: string,
@@ -11,7 +11,7 @@ departmentId:String
 }
 export interface Step{
   pId: number,
-  id: String,
+  id: string,
  salary: number,
 salaryTypeId: String,
 levelId: string;
@@ -27,7 +27,7 @@ export interface Position{
   pId: number,
   divisionId: string;
   status:number;
-positionId: String,
+positionId: string,
 name: string,
 description:string;
 createdBy: string,
@@ -38,7 +38,7 @@ updatedBy: string,
 }
 export interface EmployeePosition{
   pid:number;
-  id: String,
+  id: string,
   empId:string;
   divisionId:String,
   stepId: String,
@@ -55,7 +55,7 @@ updatedBy: string,
 }
 export interface Branch{
   pid:number;
-  id: String,
+  id: string,
   name: String,
   city: string,
 createdBy: string,
@@ -67,7 +67,7 @@ status:number;
 }
 
 export interface Grade{
-  levelId: String,
+  levelId: string,
   positionId: string,
   description: string,
 createdBy: string,

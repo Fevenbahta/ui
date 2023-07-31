@@ -19,7 +19,7 @@ export class EmployeeService {
   getAllEmployees(): Observable<Employee[]> {
     return this.http.get<Employee[]>(this.apiUrl + 'api/Employee');
   }
-  getEmployee(id:number): Observable<Employee> {
+  getEmployee(id:string): Observable<Employee> {
     return this.http.get<Employee>(this.apiUrl + 'api/Employee/'+id);
   }
 
@@ -35,12 +35,12 @@ export class EmployeeService {
          
       }),)
   }
-  updateEmployee(employeeDetails: Employee, Id:number): Observable<Employee> {
+  updateEmployee(employeeDetails: Employee, Id:string): Observable<string> {
     const httpOptions = { headers: new HttpHeaders({ 'Content-Type': 'application/json' }) };
-    return this.http.put<Employee>(this.apiUrl + 'api/Employee/'+Id, employeeDetails,httpOptions);
+    return this.http.put<string>(this.apiUrl + 'api/Employee/'+Id, employeeDetails,httpOptions);
   }
 
-  deleteEmployee(Id: number): Observable<string> {
+  deleteEmployee(Id: string): Observable<string> {
     const httpOptions = { headers: new HttpHeaders({ 'Content-Type': 'application/json' }) };
     return this.http.delete<string>(this.apiUrl + 'api/Employee/' + Id, httpOptions);
   }

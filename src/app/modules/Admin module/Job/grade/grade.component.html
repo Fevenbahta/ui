@@ -27,7 +27,7 @@
         </div> 
       </div> 
     </div> 
-    <button type="submit" class="btn btn-success">Save</button> 
+    <button type="submit" class="btn btn-sm btn-success">Save</button> 
     </form> 
   
     <h6 class="mb-3"> 
@@ -50,8 +50,11 @@
           <td>{{ getPositionName(grade.positionId) }}</td>
        
           <td>{{grade.description}}</td>
-         
+              <td>   
+          <button  class="btn btn-sm btn-danger" (click)="deleteGrade(grade.levelId)">Delete</button>
+      </td> 
         </tr> 
+   
     </tbody> 
 </table> 
 <p *ngIf="!grades || grades.length <= 0">no grades found</p>

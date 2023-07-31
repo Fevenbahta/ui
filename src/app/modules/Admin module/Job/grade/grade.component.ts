@@ -13,8 +13,9 @@ export class GradeComponent implements OnInit {
   positions:Position[]= [];
   selectedPosition: string='';
   grades:Grade[]=[];
+
   addGradeRequest: Grade={
-  levelId: undefined,
+  levelId:'',
   positionId: '',
   description: '',
 createdBy: '',
@@ -60,14 +61,28 @@ status:0,
     this.gradeservice.addGrade(this.addGradeRequest)
     .subscribe({
     next:(grade)=>{
-    this.router.navigate(["employee-registration/grade"])
+    this.router.navigate(["grade-registration/grade"])
     },
      error(response){
       console.log(response)
     }
     })}
+
     getPositionName(positionId: string): string {
       const position = this.positions.find((g) => g.positionId === positionId);
       return position ? position.name : 'Unknown Grade';
     }
+    deleteGrade(id:string){
+      this.gradeservice.deleteGrade(id)
+      .subscribe({
+        next: (response) => {
+          // Reload the grade list after successful deletion
+          this.gradeservice.getAllGrade().subscribe((grades) => {
+            this.grades = grades;
+          });
+        },
+        error(response) {
+          console.log(response);
+        }
+})}
 }

@@ -37,7 +37,7 @@ buttons = [
          { label: 'Step', route:"/admin/step" },
     { label: 'EducationLevel' , route:"/admin/education-level"},
      { label: 'grade', route:"/admin/grade" },
-     { label: 'Branch', route:"/admin/branch" },
+     { label: 'position', route:"/admin/position" },
      { label: 'Supervisor', route:"/admin/supervisor" },
 
   ];
@@ -80,5 +80,19 @@ this.router.navigate(["employee-registration/position"])
 getDivisionName(divisionId: string): string {
   const division = this.divisions.find((g) => g.divisionId === divisionId);
   return division ? (division.description )  : 'Unknown division';
-}}
+}
+deletePosition(id:string){
+  this.positionservice.deletePosition(id)
+  .subscribe({
+    next: (response) => {
+      // Reload the grade list after successful deletion
+      this.positionservice.getAllPosition().subscribe((positions) => {
+        this.positions = positions;
+      });
+    },
+    error(response) {
+      console.log(response);
+    }
+})}
+}
 

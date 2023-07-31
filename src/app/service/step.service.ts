@@ -33,7 +33,7 @@ export class StepService {
     return this.http.put<Step>(this.apiUrl + 'api/Step/'+Id, stepDetails,httpOptions);
   }
 
-  deleteStep(Id: number): Observable<string> {
+  deleteStep(Id: string): Observable<string> {
     const httpOptions = { headers: new HttpHeaders({ 'Content-Type': 'application/json' }) };
     return this.http.delete<string>(this.apiUrl + 'api/Step/' + Id, httpOptions);
   }

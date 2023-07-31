@@ -24,7 +24,6 @@
                                         <th>ECXID</th>
                                         <th>Date of Birth</th>
                                         <th>Pension Id</th>
-                                        <th>Tin Number</th>
                                         <th>placeOfBirth</th>
                                         <th>Nationality</th>
                                         <th>Martial Status</th>
@@ -43,7 +42,7 @@
                                             <td>{{employee.dateOfBityh}}</td>
                                             
                                         <td>{{employee.pensionNo}}</td>
-                                        
+                                       
                                         <td>{{employee.placeOfBith}}</td><!-- <td>{{employee.resegnationDate}}</td> -->
                                        <td>{{employee.nationality}}</td> 
                                        <td>{{employee.martialStatus}}</td>
@@ -51,10 +50,9 @@
                                        <td>{{employee.secondSupervisor}}</td>
                                     
                                      
-                                        <!-- <td> <a [routerLink]="['/employee','edit',employee.id]"> 
-                                            View
-                                            </a>
-                                        </td> -->
+                                         <td>   
+                                            <button  class="btn btn-sm btn-danger" (click)="deleteEmployee(employee.empId)">Delete</button>
+                                        </td> 
                                     </tr>
                                 </tbody>
                             </table>

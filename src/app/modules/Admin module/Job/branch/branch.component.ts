@@ -55,4 +55,17 @@ export class BranchComponent  {
     console.log(response)
   }
   })}
+  deleteBranch(id:string){
+    this.branchservice.deleteBranch(id)
+    .subscribe({
+      next: (response) => {
+        // Reload the grade list after successful deletion
+        this.branchservice.getAllBranch().subscribe((branchs) => {
+          this.branchs = branchs;
+        });
+      },
+      error(response) {
+        console.log(response);
+      }
+})}
 }

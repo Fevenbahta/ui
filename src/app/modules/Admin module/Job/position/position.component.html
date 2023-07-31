@@ -99,7 +99,7 @@
  
  
 </div> 
-<button type="submit" class="btn btn-success">Save</button> 
+<button type="submit" class="btn btn-sm btn-success">Save</button> 
 </form> 
 <table id="example1" class="table table-bordered table-striped"> 
   <thead> 
@@ -116,7 +116,9 @@
         <td>{{position.description}}</td>
      
         
-    
+        <td>   
+          <button  class="btn btn-sm btn-danger" (click)="deletePosition(position.positionId)">Delete</button>
+      </td>
 
         
           <!-- <td> <a [routerLink]="['/position','edit',position.id]">  

@@ -33,7 +33,7 @@ export class GradeService {
     return this.http.put<Grade>(this.apiUrl + 'api/Level/'+Id, gradeDetails,httpOptions);
   }
 
-  deleteGrade(Id: number): Observable<string> {
+  deleteGrade(Id:string): Observable<string> {
     const httpOptions = { headers: new HttpHeaders({ 'Content-Type': 'application/json' }) };
     return this.http.delete<string>(this.apiUrl + 'api/Level/' + Id, httpOptions);
   }

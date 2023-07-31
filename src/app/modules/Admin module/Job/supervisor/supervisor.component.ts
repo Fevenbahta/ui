@@ -29,7 +29,7 @@ supervisorLevel: '',
 }
   buttons = [
     { label: 'Position' , route:"/admin/position" },
-    { label: 'Step', route:"/admin/step" },
+    { label: 'Supervisor', route:"/admin/Supervisor" },
 { label: 'EducationLevel' , route:"/admin/education-level"},
 { label: 'Grade', route:"/admin/grade" },
 { label: 'Branch', route:"/admin/branch" },
@@ -75,5 +75,17 @@ supervisorLevel: '',
       const employee = this.employees.find((g) => g.empId === empId);
       return employee ? (employee.firstName,employee.middleName, employee.lastName )  : 'Unknown EMPLOYEE';
     }
+    deleteSupervisor(id:string){
+      this.supervisorservice.deleteSupervisor(id)
+      .subscribe({
+        next: (response) => {
+          // Reload the grade list after successful deletion
+          this.supervisorservice.getAllSupervisors().subscribe((supervisors) => {
+            this.supervisors = supervisors;
+          });
+        },
+        error(response) {
+          console.log(response);
+        }
+})}
 }
-

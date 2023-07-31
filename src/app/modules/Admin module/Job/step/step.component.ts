@@ -79,4 +79,18 @@ buttons = [
       const grade = this.grades.find((g) => g.levelId === levelId);
       return grade ? grade.description : 'Unknown Grade';
     }
+
+    deleteStep(id:string){
+      this.stepservice.deleteStep(id)
+      .subscribe({
+        next: (response) => {
+          // Reload the grade list after successful deletion
+          this.stepservice.getAllStep().subscribe((steps) => {
+            this.steps = steps;
+          });
+        },
+        error(response) {
+          console.log(response);
+        }
+})}
 }

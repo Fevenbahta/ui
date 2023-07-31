@@ -47,6 +47,7 @@ import { SpouseComponent } from 'app/modules/spouse/spouse.component';
 import { TrainingComponent } from 'app/modules/training/training.component';
 import { EmergencycontactComponent } from 'app/modules/emergencycontact/emergencycontact.component';
 import { DepositeAuthenticationComponent } from 'app/modules/deposite-authenticaton/deposite-authenticaton.component';
+import { EditEmployeeComponent } from 'app/modules/updatemodules/edit-employee/edit-employee.component';
 
 
 
@@ -72,8 +73,8 @@ SpouseComponent,
 TrainingComponent,
 SpouseComponent,
 EmergencycontactComponent,
-DepositeAuthenticationComponent
-
+DepositeAuthenticationComponent,
+EditEmployeeComponent
   ],
   imports: [
     CommonModule,

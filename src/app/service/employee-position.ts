@@ -39,7 +39,7 @@ export class EmployeePositionService {
     return this.http.put<EmployeePosition>(this.apiUrl + 'api/EmployeePosition/'+Id, employeePositionDetails,httpOptions);
   }
 
-  deleteEmployeePosition(Id: number): Observable<string> {
+  deleteEmployeePosition(Id: string): Observable<string> {
     const httpOptions = { headers: new HttpHeaders({ 'Content-Type': 'application/json' }) };
     return this.http.delete<string>(this.apiUrl + 'api/EmployeePosition/' + Id, httpOptions);
   }

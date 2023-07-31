@@ -31,7 +31,7 @@ export interface Supervisor{
     createdDate:String, 
     updatedDate: String, 
     updatedBy: String, 
-    id: String, 
+    id: string, 
     pId: number;
   empId: string,
   supervisorLevel: string;

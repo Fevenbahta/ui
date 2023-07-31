@@ -8,7 +8,7 @@
       <input type="text" class="form-control" id="educationLevelName" placeholder="Enter Education Level name"  name="educationLevel" required> 
     </div> 
  
-    <button type="submit" class="btn btn-success">Save </button> 
+    <button type="submit" class="btn  btn-sm btn-success">Save </button> 
   </form></div> 
    
 </div></div> 
@@ -37,8 +37,9 @@
             <td>{{educationlevel.educationName}}</td> 
          
           
-      
- 
+            <td>   
+                <button  class="btn btn-sm btn-danger" (click)="deleteEducationLevel(educationlevel.id)">Delete</button>
+            </td> 
           
             <!-- <td> <a [routerLink]="['/educationlevel','edit',educationlevel.id]">  
                 View 
